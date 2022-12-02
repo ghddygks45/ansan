@@ -1,0 +1,412 @@
+.pageCont .tbType4 {
+	border-top: 2px solid #456ded;
+	width: 100%;
+	table-layout: fixed;
+	text-align: left;
+}
+
+.pageCont .tbType4:last-child {
+	margin-bottom: 0;
+}
+
+.pageCont .tbType4 thead th {
+	background-color: #edf0f5;
+	font-size: 1.025em;
+	padding: 20px 10px;
+	color: #222;
+	font-weight: 500;
+	text-align: center;
+	border-right: 1px solid #ddd;
+	vertical-align: middle;
+}
+
+.pageCont .tbType4 tbody tr {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.pageCont .tbType4 tbody tr th {
+	background-color: #f7f7f7;
+	font-size: 1.125em;
+	padding: 20px 10px;
+	color: #222;
+	font-weight: 500;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+}
+
+.pageCont .tbType4 thead tr th:last-child,
+.pageCont .tbType4 tbody tr th:last-child,
+.pageCont .tbType4 tbody tr td:last-child {
+	border-right: 0;
+}
+
+.pageCont .tbType4 tbody tr td {
+	vertical-align: middle;
+	font-size: 1em;
+	font-weight: 400;
+	color: #555;
+	padding: 15px 10px;
+	text-align: center;
+	border-right: 1px solid #e5e5e5;
+}
+
+.pageCont .tbType4 .btnType1,
+.pageCont .tbType4 .btnType2 {
+	height: 30px;
+	padding: 0 8px;
+	font-size: 13px;
+}
+
+.mgr10 {
+	margin-right: 10px !important;
+}
+
+.mgb10 {
+	margin-bottom: 10px !important;
+}
+
+.mgb20 {
+	margin-bottom: 20px !important;
+}
+
+.mgb30 {
+	margin-bottom: 30px !important;
+}
+
+.mgb40 {
+	margin-bottom: 40px !important;
+}
+
+input.text {
+	min-width: 70px;
+	box-sizing: border-box;
+	padding-right: 15px;
+}
+
+.tbTit2 {
+	position: relative;
+	margin-bottom: 10px;
+	font-weight: 400;
+	color: #333;
+	font-size: 17px;
+	padding-left: 17px;
+	line-height: 1.3;
+}
+
+.tbTit2:before {
+	display: block;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 7px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: #456ded;
+}
+
+textarea {
+	box-sizing: border-box;
+	resize: none;
+	width: 100%;
+	padding: 10px;
+}
+
+.v_mid {
+	vertical-align: middle;
+}
+
+.agree-box {
+	margin-top: 15px;
+}
+
+.agree-box .bx1 {
+	padding: 15px;
+	background: #efefef;
+	line-height: 2;
+	border: 1px solid #d9d9d9;
+}
+
+.agree-box .bx2 {
+	overflow: hidden;
+	margin-top: 25px;
+}
+
+.agree-box .bx2 .l {
+	float: left;
+	font-weight: 500;
+	color: #333;
+}
+
+.agree-box .bx2 .r {
+	float: right;
+}
+
+.agree-box .bx3 {
+	text-align: right;
+	margin-top: 30px
+}
+
+.sms-cau {
+	padding: 17px 20px;
+	border: 1px solid #d9d9d9;
+	background-color: #f5f5f5;
+	line-height: 1.6;
+	color: #666;
+}
+
+.sms-cau strong {
+	display: block;
+	line-height: 1.3;
+	margin-bottom: 7px;
+	padding-left: 26px;
+	background: url(../img/icon_cau.png) no-repeat 0 50%;
+	font-weight: 500;
+	font-size: 16px;
+	color: #e71d25
+}
+
+.sms-box {
+	overflow: hidden;
+	margin-top: 30px
+}
+
+.sms-box .l {
+	float: left;
+	width: 330px
+}
+
+.sms-box .l .sms-write {
+	position: relative;
+	height: 450px;
+	background: url(../img/img_phone.png) no-repeat 0 0
+}
+
+.sms-box .l .sms-write textarea {
+	position: absolute;
+	left: 14px;
+	top: 49px;
+	width: 291px;
+	height: 325px;
+	border: 0;
+	font-size: 13px;
+}
+
+.sms-box .txt-byte {
+	position: absolute;
+	left: 0;
+	bottom: 45px;
+	width: 318px;
+	height: 31px;
+	line-height: 31px;
+	text-align: center;
+	color: #fff
+}
+
+.sms-box .r {
+	overflow: hidden;
+	padding-left: 60px
+}
+
+.sms-box .r .group-tab {
+	position: relative;
+	margin-top: 17px
+}
+
+.sms-box .r .group-tab ul {
+	overflow: hidden
+}
+
+.sms-box .r .group-tab li {
+	float: left;
+	border: 1px solid #d9d9d9;
+	margin-right: -1px
+}
+
+.sms-box .r .group-tab li a {
+	display: block;
+	width: 137px;
+	height: 47px;
+	text-align: center;
+	line-height: 47px;
+	font-size: 16px;
+	color: #999
+}
+
+.sms-box .r .group-tab .sms-add {
+	position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 63px;
+	height: 35px;
+	background-color: #b62025;
+	color: #fff;
+	text-align: center;
+	line-height: 35px
+}
+
+.sms-box .r .group-tab .on {
+	background-color: #637484;
+	color: #fff
+}
+
+.sms-box .sms_table01 {
+	border: 1px solid #d9d9d9;
+	background-color: #fff;
+	margin-top: -1px;
+	padding: 20px
+}
+
+.sms-box .name-number {
+	display: inline-block;
+	position: relative;
+	padding-left: 13px
+}
+
+.sms-box .name-number:before {
+	display: block;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 11px;
+	width: 7px;
+	height: 1px;
+	background-color: #999
+}
+
+.sms-box .name-number em {
+	display: inline-block;
+	position: relative;
+	margin-left: 5px;
+	padding-left: 9px
+}
+
+.sms-box .name-number em:before {
+	display: block;
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 5px;
+	width: 1px;
+	height: 13px;
+	background-color: #999
+}
+
+.sms-box .sms_table01 {
+	height: 220px;
+	overflow-y: auto
+}
+
+.sms-box .sms_table01 img {
+	vertical-align: -2px
+}
+
+.sms-box .sms_table01 li>span {
+	display: inline-block;
+	margin: 1px 0;
+	color: #666
+}
+
+.sms-box .s2 {
+	margin-top: 30px;
+	padding: 20px;
+	border: 1px solid #d9d9d9;
+	background-color: #f4f4f4
+}
+
+
+.sms-search {
+	text-align: right;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 17px
+}
+
+.sms-search button {
+	width: 63px;
+	height: 35px;
+	background-color: #666;
+	color: #fff
+}
+
+.sms-box .delete {
+	color: #e71d25 !important
+}
+
+.send-list {
+	height: 300px;
+	overflow-y: auto;
+	border: 1px solid #ddd;
+	padding: 15px;
+	background: #f5f5f5;
+	color: #666;
+	line-height: 1.5;
+}
+
+.send-list .checkbox input[type=checkbox]+label+label {
+	font-size: 16px;
+}
+
+.send-list li:not(:last-child) {
+	margin-bottom: 10px;
+}
+
+.send-btn {
+	overflow: hidden;
+	margin-top: 30px;
+}
+
+.send-btn>strong {
+	float: left;
+	font-weight: 500;
+}
+
+.send-btn>span {
+	float: right;
+}
+
+.send-add {
+	overflow: hidden;
+}
+
+.send-add .l {
+	float: left;
+	margin-top: 5px
+}
+
+.send-add .r {
+	float: right
+}
+
+table.common1 th {
+	text-align: left;
+	color: #fff;
+	border-bottom: 1px solid #353736;
+	padding: 17px 0 17px 18px;
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+table.common1 tr:first-child th {
+	border-top: 1px solid #637484
+}
+
+table.common1 tr:first-child td,
+table.common1 tr:last-child td {
+	border-top: 1px solid #d9d9d9
+}
+
+table.common1 td {
+	padding: 6px 20px;
+	background: #f5f5f5;
+	border-bottom: 1px solid #d9d9d9;
+	border-right: 1px solid #d9d9d9
+}
+
+.sms_cont {
+	height: 80px;
+}
+
+.sms_word {
+	line-height: 1.5;
+	margin-top: 3px;
+}

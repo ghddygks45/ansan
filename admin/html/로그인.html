@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<link rel="stylesheet" href="/iansan/admin/css/post.css">
+
+	<!-- <link rel="stylesheet" href="/iansan/admin/css/reset2.css"> -->
+	<script src="/iansan/admin/js/jquery-3.5.0.js"></script>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<script src="/js/jquery.js"></script>
+	<meta http-equiv="Content-Language" content="ko">
+	<link href="/css/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css">
+	<style>
+		.login_left {
+			position: relative;
+		}
+
+		.ncms_title {
+			position: absolute;
+			bottom: 30px;
+			left: 60px;
+			font-size: 17px;
+			font-weight: 600;
+			color: #fff;
+			letter-spacing: 1px;
+		}
+
+		caption,
+		legend,
+		label,
+		.hidden {
+			visibility: hidden;
+			position: absolute;
+			left: -9999em;
+			width: 1px;
+			height: 1px;
+			margin: 0;
+			padding: 0;
+			background: none;
+			font-size: 0;
+			line-height: 0;
+			text-indent: -9999em
+		}
+	</style>
+</head>
+
+<body>
+	<div class="login_all_wrap">
+		<div class="login_wrap">
+			<div class="login_right_box">
+				<div class="btn_login_cms">
+					<a href="#n" class="line_red">통합관리시스템</a>
+					<a href="#n" class="bg_gray">전자결재시스템</a>
+				</div>
+				<div class="id_box">
+					<p>ID</p>
+					<label for="id_text">아이디 입력</label> <input type="text" id="id_text" maxlength="20" placeholder="아이디를 입력해주세요"
+						class="id">
+				</div>
+				<div class="pw_box" style="margin-top: 25px;">
+					<p style="margin-top: 0">PASSWORD</p>
+					<label for="password_text">패스워드 입력</label>
+					<input type="password" id="password_text" placeholder="비밀번호를 입력해주세요." class="pw"
+						onkeydown="javascript:if (event.keyCode == 13) { actionLogin();return false; }">
+				</div>
+				<div class="saveId" style="margin-top: 22px;">
+					<label for="checkId">아이디저장</label> <input type="checkbox" id="checkId" name="checkId"> 아이디저장
+				</div>
+				<div class="submit_box" style="margin-top: 40px">
+					<input type="submit" class="submit" id="login_submit" value="로그인"
+						onclick="javascript:actionLogin();return false;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+@charset "utf-8";
+@import url(reset.css);
+
+@page {
+	size: A4;
+}
+
+body {
+	font-family: 'Malgun Gothic';
+}
+
+.print_top {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 60px;
+	padding-left: 20px;
+	background: #456ded;
+	/* #d9272a */
+}
+
+.print_top .btn_close {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 62px;
+	height: 60px;
+}
+
+.print_top .print_tit {
+	font-weight: 500;
+	font-size: 20px;
+	color: #fff;
+}
+
+caption {
+	display: none
+}
+
+.official_document {
+	padding: 20px;
+}
+
+.official_document table {
+	width: 100%;
+}
+
+.official_document .docu_top .img img {
+	width: 100%
+}
+
+.official_document .docu_top .docu_info {
+	border-bottom: 2px solid #666;
+	padding: 15px 0 10px;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+.official_document .docu_top .docu_info table td {
+	padding: 5px 0;
+}
+
+.official_document .docu_top .docu_info table td.spacing {
+	letter-spacing: 25px;
+}
+
+.official_document .docu_cont {
+	height: 730px;
+	padding-top: 20px;
+	font-size: 20px;
+	line-height: 1.5;
+}
+
+.official_document .docu_btm {
+	border-top: 2px solid #666;
+	margin-top: auto;
+	font-size: 15px;
+}
+
+.official_document .docu_btm .line {
+	padding: 10px 0;
+}
+
+.official_document .docu_btm .approver table {
+	width: auto;
+}
+
+.official_document .docu_btm .approver table td {
+	vertical-align: middle;
+	padding-right: 20px;
+}
+
+.official_document .docu_btm .approver table .name {
+	margin-top: 3px;
+	font-weight: bold;
+}
+
+.official_document .docu_btm .collaborator dl {
+	display: flex;
+}
+
+.official_document .docu_btm .collaborator dt {
+	width: 70px;
+	text-align: left;
+	padding: 0;
+}
+
+.official_document .docu_btm .collaborator dd {
+	padding: 0 15px;
+}
+
+.official_document .docu_btm .collaborator dd:last-child {
+	padding-right: 15px
+}
+
+.official_document .docu_btm .docu_num,
+.official_document .docu_btm .docu_num .half dl,
+.official_document .docu_btm .addr {
+	display: flex;
+}
+
+.official_document .docu_btm .docu_num .half {
+	width: 50%;
+}
+
+.official_document .docu_btm .docu_num .spacing {
+	letter-spacing: 16px;
+}
+
+.official_document .docu_btm .docu_num .num,
+.official_document .docu_btm .docu_num .team {
+	margin-left: 10px;
+}
+
+.official_document .docu_btm .addr {
+	justify-content: space-between;
+}
+
+.official_document .docu_btm .addr p {
+	margin-bottom: 8px;
+}
+
+.official_document .docu_btm .addr .half:nth-child(2) {
+	padding-right: 15px
+}
+
+/* 출장복명서 */
+.document_type2 {
+	padding: 20px;
+}
+
+.document_type2 .docu_top {
+	margin-bottom: 35px;
+}
+
+.document_type2 .docu_top .docu_tit {
+	position: relative;
+	text-align: center;
+	font-weight: bold;
+	font-size: 36px;
+	letter-spacing: 32px;
+}
+
+.document_type2 .docu_top .docu_tit span {
+	position: relative;
+}
+
+.document_type2 .docu_top .docu_tit span:before {
+	content: '';
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: calc(100% - 30px);
+	border: 1px solid #222;
+}
+
+.document_type2 .tbl {
+	border: 2px solid #222;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.document_type2 .tbl th,
+.document_type2 .tbl td {
+	border: 1px solid #666;
+	padding: 12px 15px;
+}
+
+.document_type2 .tbl th,
+.document_type2 .tbl td.th {
+	background-color: #d6d6d6;
+	font-weight: bold;
+	text-align: center;
+	print-color-adjust: exact;
+}
+
+.document_type2 .tbl td .sub_tit {
+	position: relative;
+	margin-bottom: 10px;
+	padding-left: 12px;
+	font-weight: bold;
+}
+
+.document_type2 .tbl td .sub_tit:before {
+	content: '‣';
+	position: absolute;
+	top: -5px;
+	left: 0;
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.document_type2 .tbl td .sub_cont {
+	height: 180px;
+}
+
+.document_type2 .tbl td .sub_cont table {
+	width: 100%
+}
+
+.document_type2 .tbl td .sub_cont table th,
+.document_type2 .tbl td .sub_cont table td {
+	padding: 5px 10px;
+	text-align: center;
+}
+
+.document_type2 .tbl td .sub_img img {
+	display: block;
+	width: 380px;
+	height: 286px;
+	margin-top: 10px;
+}
+
+.txt_c {
+	text-align: center;
+}
+
+.txt_r {
+	text-align: right
+}
+
+.page-break-tr {
+	page-break-inside: avoid;
+	page-break-after: auto;
+}
+
+@media print {
+	@page {
+		size: 210mm 297mm;
+		/* portrait */
+		/* you can also specify margins here: */
+		margin: 20mm;
+		/* margin-right: 0; */
+		/* for compatibility with both A4 and Letter */
+	}
+
+	html,
+	body {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		width: 210mm;
+		height: 297mm;
+		/*margin: 20mm 20mm 20mm 20mm;*/
+	}
+
+	table {
+		page-break-inside: auto;
+	}
+
+	tr {
+		page-break-inside: avoid;
+		page-break-after: auto;
+	}
+
+	thead {
+		display: table-header-group;
+	}
+
+	tfoot {
+		display: table-footer-group;
+	}
+
+	.print_top {
+		display: none;
+	}
+
+	.official_document,
+	.document_type2 {
+		padding: 0;
+	}
+}

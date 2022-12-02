@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<link rel="stylesheet" href="/iansan/admin/css/reset.css">
+	<link rel="stylesheet" href="/iansan/admin/css/common.css">
+	<link rel="stylesheet" href="/iansan/admin/css/content.css">
+
+	<link rel="stylesheet" href="/iansan/admin/css/popup.css">
+	<link rel="stylesheet" href="/iansan/admin/css/park.css">
+	<link rel="stylesheet" href="/iansan/admin/css/seon.css">
+	<!-- <link rel="stylesheet" href="/iansan/admin/css/reset2.css"> -->
+	<script src="/iansan/admin/js/jquery-3.5.0.js"></script>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<script src="/js/jquery.js"></script>
+	<meta http-equiv="Content-Language" content="ko">
+	<link href="/css/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	<header>
+		<!-- common popup -->
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				즐겨찾기 매뉴 <input type="button" class="setBtn" onclick="location.href='/sym/mnu/mcm/QuickMenuMng.do'"><input
+					type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+
+				</ul>
+			</div>
+		</div>
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				회원정보 <input type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+					<li
+						onclick="goMenuPage('2100000', '/uss/umt/user/EgovUserSelectUpdtView.do?selectedId=USRCNFRM_00000004912');"
+						style="cursor:pointer">회원정보 수정</li>
+					<li onclick="location.href='/uat/uia/actionLogout.do'" style="cursor:pointer">로그아웃</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //common popup -->
+
+		<h1>
+			<a href="/cmm/main/mainPage.do"><img src="/img/adminLogo2.png" alt="로고이미지"></a>
+		</h1>
+		<div class="topRight">
+			<input type="button" class="allMenu" style="display:none;">
+			<ul class="inline">
+				<!-- <li><input type="button" class="quickSiteBtn" onclick="window.open('about:blank').location.href='/web/main/mainPage.do'"></li> -->
+			</ul>
+			<div class="infoWrap">
+				<ul class="inline">
+					<li>
+						<a href="#" onclick="sessionExpend(); return false;">
+							<img src="/iansan/admin/img/common/topTimeOut.png" alt="타임아웃 아이콘">
+						</a>
+						<p>로그인 세션 타임아웃 시간 :
+							<span id="ViewTimer">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</span>
+						</p>
+					</li>
+					<li>
+						<img src="/iansan/admin/img/common/topTime.png" alt="타임 아이콘">
+						<p>최종접속일시 : <span>2022-06-20 14:45</span></p>
+					</li>
+				</ul>
+				<div class="pfWrap">
+					<div class="pfImg">
+						<!-- <img src="/iansan/admin/img/pfImg.jpg" alt="개인이미지"> -->
+					</div>
+					<ul>
+						<li class="pfName">admin999</li>
+						<li class="pfPosi">짙은퍼블리셔관리자계정</li>
+					</ul>
+					<input type="button" class="downBtn" onclick="cmnPopOpen(this,1)">
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+
+	<!-- 메뉴 시작 -->
+	<style>
+		.leftMenu .subMenu li {
+			height: auto;
+		}
+
+		.leftMenu>ul>li .dep3 {
+			display: block;
+			padding-left: 10px;
+		}
+
+		.leftMenu>ul>li .dep3 li {
+			position: relative;
+			width: auto;
+			padding: 0 10px;
+			line-height: normal;
+		}
+
+		.leftMenu>ul>li .dep3 li:not(:last-child) {
+			margin-bottom: 3px;
+		}
+
+		.leftMenu>ul>li .dep3 li::before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 13px;
+			width: 5px;
+			height: 1px;
+			background: #ddd;
+		}
+
+		.leftMenu>ul>li .dep3 .on {
+			text-decoration: underline;
+		}
+	</style>
+	<nav class="leftMenu">
+		<ul>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu1.png" alt="홈페이지관리메뉴 아이콘">
+				<p>홈페이지관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu" style="display: block;">
+					<li onclick="javascript:goMenuPage('3100000', '/uss/ion/pwm/mainzoneList.do')" id="top_href_3100000"
+						value='메인비주얼관리'>
+						<a href="#">메인비주얼관리</a>
+						<ul class="dep3">
+							<li><a href="#n" class="on">메뉴1</a></li>
+							<li><a href="#n">메뉴2</a></li>
+							<li><a href="#n">메뉴3</a></li>
+							<li><a href="#n">메뉴4</a></li>
+							<li><a href="#n">메뉴5</a></li>
+						</ul>
+					</li>
+					<li onclick="javascript:goMenuPage('3120000', '/uss/ion/pwm/listPopup.do')" id="top_href_3120000"
+						value='팝업관리'>
+						<a href="#">팝업관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3200000', '/cop/bbs/SelectBBSMasterInfs.do')" id="top_href_3200000"
+						value='게시판관리'>
+						<a href="#">게시판관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3300000', '/uss/ion/cnt/contentList.do')" id="top_href_3300000"
+						value='콘텐츠관리'>
+						<a href="#">콘텐츠관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3500000', '/uss/ion/acad/acadList.do')" id="top_href_3500000"
+						value='학사일정/입시일정/총장일정'>
+						<a href="#">학사일정/입시일정/총장일정</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3700000', '/uss/ion/famc/familyCompList.do')" id="top_href_3700000"
+						value='가족회사신청관리'>
+						<a href="#">가족회사신청관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3900000', '/uss/ion/dormi/dormitoryBigList.do')" id="top_href_3900000"
+						value='연연생활관 입사신청 관리'>
+						<a href="#">연연생활관 입사신청 관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3800000', '/uss/orgChart/OrgChartManage.do')" id="top_href_3800000"
+						value='조직도'>
+						<a href="#">조직도</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3110000', '/uss/ion/prof/ProfessorList.do')" id="top_href_3110000"
+						value='교수진'>
+						<a href="#">교수진</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu2.png" alt="관리자관리메뉴 아이콘">
+				<p>관리자관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('2100000', '/uss/umt/user/EgovUserManage.do')" id="top_href_2100000"
+						value='관리자관리'>
+						<a href="#">관리자관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2200000', '/uss/umt/mber/EgovMberManage.do')" id="top_href_2200000"
+						value='사용자관리(회원)'>
+						<a href="#">사용자관리(회원)</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2300000', '/sym/mnu/mcm/EgovMenuCreatManageSelect.do')"
+						id="top_href_2300000" value='권한별메뉴관리'>
+						<a href="#">권한별메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu5.png" alt="메뉴관리메뉴 아이콘">
+				<p>메뉴관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('5100000', '/sym/mnu/mcm/EgovMenuCreatSelectJtree.do')"
+						id="top_href_5100000" value='메뉴관리'>
+						<a href="#">메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu7.png" alt="Q&A관리메뉴 아이콘">
+				<p>Q&A관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('610000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000713')"
+						id="top_href_610000" value='Q&A'>
+						<a href="#">Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('620000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000891')"
+						id="top_href_620000" value='연연생활관 Q&A'>
+						<a href="#">연연생활관 Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('630000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000902')"
+						id="top_href_630000" value='소통마당'>
+						<a href="#">소통마당</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu8.png" alt="로그관리메뉴 아이콘">
+				<p>로그관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('7910000', '/sym/log/clg/SelectLoginLogList.do')" id="top_href_7910000"
+						value='관리자로그리스트'>
+						<a href="#">관리자로그리스트</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu9.png" alt="운영관리메뉴 아이콘">
+				<p>운영관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('8400000', '/uss/ion/fms/fmsFileList.do')" id="top_href_8400000"
+						value='첨부파일관리'>
+						<a href="#">첨부파일관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8600000', '/sym/ccm/ccc/EgovCcmCmmnCodeTree.do')" id="top_href_8600000"
+						value='코드관리'>
+						<a href="#">코드관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8200000', '/sym/site/IndexPageMng.do')" id="top_href_8200000"
+						value='사용자최초 페이지 설정관리'>
+						<a href="#">사용자최초 페이지 설정관리</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="btnWrap">
+			<ul>
+				<!-- <li><button>
+                        <a href="/cmm/fms/FileDown.do?atchFileId=FILE_000000000008311&amp;fileSn=0">
+                        <p>관리자 <span>매뉴얼</span> </p><img src="/iansan/admin/img/common/leftBtnIcon1.png" alt="관리자 매뉴얼 아이콘">
+                        </button>
+                        </a>
+                    </li> -->
+				<li>
+					<a href="/web/main/mainPage.do" target="_blank">
+						<button>
+							<p>홈페이지<span> 바로가기</span></p><img src="/iansan/admin/img/common/leftBtnIcon2.png" alt="홈페이지바로가기 아이콘">
+						</button>
+					</a>
+					<!-- 최고관리자만 구글보이기 -->
+					<a href="https://analytics.google.com/analytics/web/?hl=ko&pli=1#/p286604442/reports/reportinghub"
+						target="_blank" style="display: inline-block; margin-top: 10px; ">
+						<button>
+							<p>구글애널리틱스<span> 바로가기</span></p>
+						</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</nav>
+	<!-- 메뉴 끝 -->
+
+	<!-- body 시작 -->
+	<div class="contWrap">
+		<div class="pageTitle">
+			<div class="pageIcon"><img src="/iansan/admin/img/pageTitIcon4.png" alt=""></div>
+			<h2 class="titType1 c_222222 fwBold">조직도</h2>
+			<p class="tType6 c_999999">본사 및 지사 임직원을 조직별로 관리할 수 있습니다.</p>
+		</div>
+		<div class="pageNav">
+			<img src="/iansan/admin/img/common/homeIcon.png" alt="홈이미지">&ensp;>&ensp;<p class="topDepth">홈페이지관리</p>
+			&ensp;>&ensp;<p class="subDepth">매뉴관리</p>
+		</div>
+
+		<!-- 컨텐츠 영역 -->
+		<div class="pageCont">
+
+			<span class="tbTit">목록 검색폼</span><br><br>
+			<div class="tab-menu" style="margin-top: 20px;">
+				<ul>
+					<li><a href="#" onclick="listLoad('1'); return false;" class="on">목록</a></li>
+					<li><a href="#" onclick="listLoad('2'); return false;">달력</a></li>
+				</ul>
+			</div>
+			<div class="listSerch">
+				<select name="searchCondition" id="searchCondition" class="select" title="검색조건선택">
+					<option value="">전체</option>
+					<option value="1">제목</option>
+					<option value="2">대체텍스트</option>
+				</select>
+				<select name="nation" id="nation" class="select" title="검색조건선택">
+					<option value="">전체(영/한)</option>
+					<option value="K">한글</option>
+					<option value="E">영문</option>
+				</select>
+				<select name="deviceType" id="deviceType" class="select" title="검색조건선택">
+					<option value="">기기종류</option>
+					<option value="P">PC용</option>
+					<option value="M">모바일용</option>
+				</select>
+				<input id="searchKeyword" name="searchKeyword" class="recentSearch" type="text" value="" size="40" title="검색"
+					maxlength="100">
+				<input type="button" class="btnType1" value="검색">
+			</div>
+			<div class="listTop">
+				<p class="tType5">
+					게시판 수 : <span class="tType4 c_456ded fwBold">86</span>건
+				</p>
+				<div class="rightWrap">
+					<input type="button" class="excelBtn">
+					<input type="button" class="printBtn">
+					<select name="pageUnit" id="pageUnit" class="select" title="검색조건선택">
+						<option value="10" selected="">10줄</option>
+						<option value="20">20줄</option>
+						<option value="30">30줄</option>
+					</select>
+				</div>
+			</div>
+			<div class="tableWrap">
+				<table class="tbType1">
+					<colgroup>
+						<col style="width: 3%">
+						<col style="width: 4%">
+						<col style="width: 14%">
+						<col style="width: 30%">
+						<col style="width: 6%">
+						<col style="width: 10%">
+						<col style="width: 7%">
+						<col style="width: 6%">
+						<col style="width: 6%">
+						<col>
+					</colgroup>
+					<thead>
+						<tr>
+							<th>
+								<input type="checkbox" id="" name="" value="">
+								<label for="checkAll"></label>
+							</th>
+							<th>번호</th>
+							<th>게시판명</th>
+							<th>연결된메뉴</th>
+							<th>새글/글수</th>
+							<th>게시판유형</th>
+							<th>생성일</th>
+							<th>사용여부</th>
+							<th>관리자</th>
+							<th>게시판관리</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="checkbox" name="" id="" value="">
+								<label for="BBSMSTR_000000001309"></label>
+								<label for="BBSMSTR_000000001309"></label>
+							</td>
+							<td>86</td>
+							<td>공연</td>
+							<td>뉴스센터 &gt; 예대포토 &gt; 공연</td>
+							<td>0/12</td>
+							<td>포토/동영상 게시판</td>
+							<td>2022-06-09</td>
+							<td>사용</td>
+							<td></td>
+							<td>
+								<input type="button" value="수정" class="btnType1">
+								<input type="button" value="게시판보기" class="btnType2">
+								<input type="button" value="홈페이지" class="btnType2">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="" id="" value="">
+								<label for="BBSMSTR_000000001309"></label>
+								<label for="BBSMSTR_000000001309"></label>
+							</td>
+							<td>86</td>
+							<td>공연</td>
+							<td>뉴스센터 &gt; 예대포토 &gt; 공연</td>
+							<td>0/12</td>
+							<td>포토/동영상 게시판</td>
+							<td>2022-06-09</td>
+							<td>사용</td>
+							<td></td>
+							<td>
+								<input type="button" value="수정" class="btnType1">
+								<input type="button" value="게시판보기" class="btnType2">
+								<input type="button" value="홈페이지" class="btnType2">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="" id="" value="">
+								<label for="BBSMSTR_000000001309"></label>
+								<label for="BBSMSTR_000000001309"></label>
+							</td>
+							<td>86</td>
+							<td>공연</td>
+							<td>뉴스센터 &gt; 예대포토 &gt; 공연</td>
+							<td>0/12</td>
+							<td>포토/동영상 게시판</td>
+							<td>2022-06-09</td>
+							<td>사용</td>
+							<td></td>
+							<td>
+								<input type="button" value="수정" class="btnType1">
+								<input type="button" value="게시판보기" class="btnType2">
+								<input type="button" value="홈페이지" class="btnType2">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="" id="" value="">
+								<label for="BBSMSTR_000000001309"></label>
+								<label for="BBSMSTR_000000001309"></label>
+							</td>
+							<td>86</td>
+							<td>공연</td>
+							<td>뉴스센터 &gt; 예대포토 &gt; 공연</td>
+							<td>0/12</td>
+							<td>포토/동영상 게시판</td>
+							<td>2022-06-09</td>
+							<td>사용</td>
+							<td></td>
+							<td>
+								<input type="button" value="수정" class="btnType1">
+								<input type="button" value="게시판보기" class="btnType2">
+								<input type="button" value="홈페이지" class="btnType2">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type="checkbox" name="" id="" value="">
+								<label for="BBSMSTR_000000001309"></label>
+								<label for="BBSMSTR_000000001309"></label>
+							</td>
+							<td>86</td>
+							<td>공연</td>
+							<td>뉴스센터 &gt; 예대포토 &gt; 공연</td>
+							<td>0/12</td>
+							<td>포토/동영상 게시판</td>
+							<td>2022-06-09</td>
+							<td>사용</td>
+							<td></td>
+							<td>
+								<input type="button" value="수정" class="btnType1">
+								<input type="button" value="게시판보기" class="btnType2">
+								<input type="button" value="홈페이지" class="btnType2">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="btnWrap">
+				<input type="button" class="btnType1" value="등록">
+			</div>
+
+			<div class="page">
+				<ul class="inline">
+					<li><strong style="font-weight:bold;">1</strong></li>
+					<li onclick="linkPage(2);return false;" style="cursor:pointer">2</li>
+					<li onclick="linkPage(3);return false;" style="cursor:pointer">3</li>
+					<li onclick="linkPage(4);return false;" style="cursor:pointer">4</li>
+					<li onclick="linkPage(5);return false;" style="cursor:pointer">5</li>
+					<li onclick="linkPage(6);return false;" style="cursor:pointer">6</li>
+					<li onclick="linkPage(7);return false;" style="cursor:pointer">7</li>
+					<li onclick="linkPage(8);return false;" style="cursor:pointer">8</li>
+					<li onclick="linkPage(9);return false;" style="cursor:pointer">9</li>
+				</ul>
+			</div>
+
+
+
+			<div style="margin-top: 80px">
+				<span class="tbTit" id="partNm">상세/등록 폼</span>
+				<div class="listTop resisterList">
+					<p class="right block fwMd"><span class="tType4 c_e40000 fwBold">*</span>는 필수입력 항목입니다.</p>
+				</div>
+				<table class="tbType2">
+					<colgroup>
+						<col style="width: 20%">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th><span class="reqArea">게시판유형</span></th>
+							<td>
+								<ul class="inline">
+									<li>
+										<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+												value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+												for="bbsTyCode1">일반게시판</label></span>
+										<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+												value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">포토/동영상 게시판</label></span>
+									</li>
+								</ul>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">화면유형</span></th>
+							<td>
+								<span class="radio">
+									<input class="blind" type="radio" id="check1_1" name="" value="">
+									<label for="check1_1"></label>
+									<label for="check1_1">내용작성</label>
+								</span>
+								<span class="radio">
+									<input class="blind" type="radio" id="check1_2" name="" value="">
+									<label for="check1_2"></label>
+									<label for="check1_2">PDF형</label>
+								</span>
+								<span class="radio">
+									<input class="blind" type="radio" id="check1_3" name="" value="">
+									<label for="check1_3"></label>
+									<label for="check1_3">링크형</label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">화면유형</span></th>
+							<td>
+								<span class="checkbox">
+									<input class="blind" type="checkbox" id="check2_1" name="" value="">
+									<label for="check2_1"></label>
+									<label for="check2_1">체크1</label>
+								</span>
+								<span class="checkbox">
+									<input class="blind" type="checkbox" id="check2_2" name="" value="">
+									<label for="check2_2"></label>
+									<label for="check2_2">체크2</label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th><span>날짜 등록</span></th>
+							<td>
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<th><span>게시판카테고리(대메뉴)</span></th>
+							<td>
+								<select name="bbsTab" id="bbsTab">
+									<option value="">선택해주세요</option>
+									<option value=""></option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><span>게시판카테고리(대메뉴)</span></th>
+							<td>
+								<select name="bbsTab" id="bbsTab">
+									<option value="">선택해주세요</option>
+									<option value=""></option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">공지기능</span></th>
+							<td>
+								<select id="" name="">
+									<option value="">사용</option>
+									<option value="">미사용</option>
+								</select>
+
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">답글기능</span></th>
+							<td>
+								<select id="" name="">
+									<option value="">사용</option>
+									<option value="">미사용</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">리스트갯수</span></th>
+							<td>
+								<select id="" name="" title="파일첨부 갯수">
+									<option value="1">1</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">파일첨부기능</span></th>
+							<td>
+								<select id="fileAtchPosblAt" name="fileAtchPosblAt">
+									<option value="Y">사용</option>
+									<option value="N">미사용</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">조회수 노출여부</span></th>
+							<td>
+								<select id="viewsYn" name="viewsYn" title="조회수 노출여부">
+									<option value="Y">사용</option>
+									<option value="N">미사용</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="btnWrap">
+					<input type="button" class="btnType1" value="삭제">
+					<input type="button" class="btnType1 bg_888888" value="저장">
+				</div>
+			</div>
+
+			<div style="margin-top: 80px">
+				<span class="tbTit" id="partNm">폰트 컬러</span>
+				<div style="margin-top: 20px">
+					<span class="txt_red">승인관리</span>
+					<span class="txt_blue">승인관리</span>
+					<span class="txt_green">승인관리</span>
+					<span class="txt_orange">승인관리</span>
+				</div>
+			</div>
+
+			<div style="margin-top: 80px">
+				<span class="tbTit" id="partNm">버튼</span>
+				<div style="margin-top: 20px;">
+					<input type="button" class="btn sm bg_orange" value="버튼">
+					<input type="button" class="btn sm bg_gray" value="버튼">
+				</div>
+				<div class="btn_box" style="margin-top: 20px;">
+					<div class="l">
+						<input type="button" class="btn md bg_gray" value="버튼">
+						<input type="button" class="btn md bg_blue" value="버튼">
+						<input type="button" class="btn md bg_green" value="버튼">
+					</div>
+				</div>
+				<div class="btn_box" style="margin-top: 20px;">
+					<div class="c">
+						<input type="button" class="btn md bg_gray" value="버튼">
+						<input type="button" class="btn md bg_blue" value="버튼">
+						<input type="button" class="btn md bg_green" value="버튼">
+					</div>
+				</div>
+				<div class="btn_box" style="margin-top: 20px;">
+					<div class="r">
+						<input type="button" class="btn md bg_gray" value="버튼">
+						<input type="button" class="btn md bg_blue" value="버튼">
+						<input type="button" class="btn md bg_green" value="버튼">
+					</div>
+				</div>
+				<div class="btn_box" style="margin-top: 20px;">
+					<div class="l">
+						<input type="button" class="btn md bg_gray" value="버튼">
+						<input type="button" class="btn md bg_blue" value="버튼">
+						<input type="button" class="btn md bg_green" value="버튼">
+					</div>
+					<div class="r">
+						<input type="button" class="btn md bg_gray" value="버튼">
+						<input type="button" class="btn md bg_blue" value="버튼">
+						<input type="button" class="btn md bg_green" value="버튼">
+					</div>
+				</div>
+			</div>
+
+			<div style="margin-top: 80px">
+				<span class="tbTit" id="partNm">레이어팝업</span>
+				<div style="margin-top: 20px;">
+					<input type="button" value="large" onclick="popopOpen('popupLarge');">
+					<input type="button" value="medium" onclick="popopOpen('popupMedium');">
+					<input type="button" value="small" onclick="popopOpen('popupSmall');">
+					<input type="button" value="alert" onclick="popopOpen('popupAlert');">
+				</div>
+
+				<script>
+					function popopOpen(id) {
+						$('#' + id).show();
+					}
+
+					function popopClose(id) {
+						$('#' + id).hide();
+					}
+				</script>
+
+
+				<div class="layerpopup_wrap" id="popupLarge" style="display: none;">
+					<div class="popup large">
+						<div class="pop_top">
+							<div class="pop_tit">팝업 제목 영역</div>
+							<a href="#n" class="btn_close" onclick="popopClose('popupLarge');return false;"><img
+									src="/iansan/admin/img/common/btn-popClose.png" alt=""></a>
+						</div>
+						<div class="pop_con">
+							<table class="tbType2">
+								<colgroup>
+									<col style="width: 20%">
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><span class="reqArea">게시판유형</span></th>
+										<td>
+											<ul class="inline">
+												<li>
+													<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형"
+															type="radio" value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+															for="bbsTyCode1">일반게시판</label></span>
+													<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형"
+															type="radio" value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">포토/동영상
+															게시판</label></span>
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<th><span class="reqArea">화면유형</span></th>
+										<td>
+											<span class="radio">
+												<input class="blind" type="radio" id="check1_1" name="" value="">
+												<label for="check1_1"></label>
+												<label for="check1_1">내용작성</label>
+											</span>
+											<span class="radio">
+												<input class="blind" type="radio" id="check1_2" name="" value="">
+												<label for="check1_2"></label>
+												<label for="check1_2">PDF형</label>
+											</span>
+											<span class="radio">
+												<input class="blind" type="radio" id="check1_3" name="" value="">
+												<label for="check1_3"></label>
+												<label for="check1_3">링크형</label>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<th><span class="reqArea">화면유형</span></th>
+										<td>
+											<span class="checkbox">
+												<input class="blind" type="checkbox" id="check2_1" name="" value="">
+												<label for="check2_1"></label>
+												<label for="check2_1">체크1</label>
+											</span>
+											<span class="checkbox">
+												<input class="blind" type="checkbox" id="check2_2" name="" value="">
+												<label for="check2_2"></label>
+												<label for="check2_2">체크2</label>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btn_box mt20">
+								<div class="r">
+									<input type="button" class="btn md bg_gray" value="닫기" onclick="popopClose('popupLarge');">
+									<input type="button" class="btn md bg_blue" value="등록">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="layerpopup_wrap" id="popupMedium" style="display: none;">
+					<div class="popup medium">
+						<div class="pop_top">
+							<div class="pop_tit">팝업 제목 영역</div>
+							<a href="#n" class="btn_close" onclick="popopClose('popupMedium');return false;"><img
+									src="/iansan/admin/img/common/btn-popClose.png" alt=""></a>
+						</div>
+						<div class="pop_con">
+							<table class="tbType2">
+								<colgroup>
+									<col style="width: 20%">
+									<col style="width: 80%">
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><span class="reqArea">게시판유형</span></th>
+										<td>
+											<ul class="inline">
+												<li>
+													<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형"
+															type="radio" value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+															for="bbsTyCode1">일반게시판</label></span>
+													<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형"
+															type="radio" value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">포토/동영상
+															게시판</label></span>
+												</li>
+											</ul>
+										</td>
+									</tr>
+									<tr>
+										<th><span class="reqArea">화면유형</span></th>
+										<td>
+											<span class="radio">
+												<input class="blind" type="radio" id="check1_1" name="" value="">
+												<label for="check1_1"></label>
+												<label for="check1_1">내용작성</label>
+											</span>
+											<span class="radio">
+												<input class="blind" type="radio" id="check1_2" name="" value="">
+												<label for="check1_2"></label>
+												<label for="check1_2">PDF형</label>
+											</span>
+											<span class="radio">
+												<input class="blind" type="radio" id="check1_3" name="" value="">
+												<label for="check1_3"></label>
+												<label for="check1_3">링크형</label>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<th><span class="reqArea">화면유형</span></th>
+										<td>
+											<span class="checkbox">
+												<input class="blind" type="checkbox" id="check2_1" name="" value="">
+												<label for="check2_1"></label>
+												<label for="check2_1">체크1</label>
+											</span>
+											<span class="checkbox">
+												<input class="blind" type="checkbox" id="check2_2" name="" value="">
+												<label for="check2_2"></label>
+												<label for="check2_2">체크2</label>
+											</span>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btn_box mt20">
+								<div class="r">
+									<input type="button" class="btn md bg_gray" value="닫기" onclick="popopClose('popupMedium');">
+									<input type="button" class="btn md bg_blue" value="등록">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="layerpopup_wrap" id="popupSmall" style="display: none;">
+					<div class="popup small">
+						<div class="pop_top">
+							<div class="pop_tit">팝업 제목 영역</div>
+							<a href="#n" class="btn_close" onclick="popopClose('popupSmall');return false;"><img
+									src="/iansan/admin/img/common/btn-popClose.png" alt=""></a>
+						</div>
+						<div class="pop_con">
+							<table class="tbType2">
+								<colgroup>
+									<col style="width: 30%">
+									<col>
+								</colgroup>
+								<tbody>
+									<tr>
+										<th><span class="reqArea">게시판유형</span></th>
+										<td>
+											<ul class="inline">
+												<li>
+													<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형"
+															type="radio" value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+															for="bbsTyCode1">일반게시판</label></span>
+													<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형"
+															type="radio" value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">포토/동영상
+															게시판</label></span>
+												</li>
+											</ul>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="btn_box mt20">
+								<div class="r">
+									<input type="button" class="btn md bg_gray" value="닫기" onclick="popopClose('popupSmall');">
+									<input type="button" class="btn md bg_blue" value="등록">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="layerpopup_wrap" id="popupAlert" style="display: none;">
+					<div class="popup alert">
+						<div class="pop_top">
+							<div class="pop_tit">팝업 제목 영역</div>
+							<a href="#n" class="btn_close" onclick="popopClose('popupAlert');return false;"><img
+									src="/iansan/admin/img/common/btn-popClose.png" alt=""></a>
+						</div>
+						<div class="pop_con">
+							<div class="alert_msg">
+								[이순신님]의 수강을 취소 하시겠습니까?<br>
+								결제관리 메뉴에서 확인 하실 수 있습니다.
+							</div>
+							<div class="btn_box mt30">
+								<div class="c">
+									<input type="button" class="btn md bg_gray" value="닫기" onclick="popopClose('popupAlert');">
+									<input type="button" class="btn md bg_blue" value="확인">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- // 컨텐츠 영역 -->
+
+	</div>
+	<!-- body 끝 -->
+
+</body>
+
+</html>

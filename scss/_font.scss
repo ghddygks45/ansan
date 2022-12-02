@@ -1,0 +1,70 @@
+/* Font */
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: "normal";
+	font-weight: 300;
+	src: local("※"), url("../fonts/NotoSansKR-Light.woff2") format("woff2"), url("../fonts/NotoSansKR-Light.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: "normal";
+	font-weight: 400;
+	src: local("※"), url("../fonts/NotoSansKR-Regular.woff2") format("woff2"), url("../fonts/NotoSansKR-Regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: "normal";
+	font-weight: 500;
+	src: local("※"), url("../fonts/NotoSansKR-Medium.woff2") format("woff2"), url("../fonts/NotoSansKR-Medium.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Noto Sans KR";
+	font-style: "normal";
+	font-weight: 600;
+	src: local("※"), url("../fonts/NotoSansKR-Bold.woff2") format("woff2"), url("../fonts/NotoSansKR-Bold.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	font-style: "normal";
+	font-weight: 300;
+	src: local("※"), url("../fonts/NotoSans-Light.woff2") format("woff2"), url("../fonts/NotoSans-Light.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	font-style: "normal";
+	font-weight: 400;
+	src: local("※"), url("../fonts/NotoSans-Regular.woff2") format("woff2"), url("../fonts/NotoSans-Regular.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	font-style: "normal";
+	font-weight: 500;
+	src: local("※"), url("../fonts/NotoSans-Medium.woff2") format("woff2"), url("../fonts/NotoSans-Medium.woff") format("woff");
+}
+
+@font-face {
+	font-family: "Noto Sans";
+	font-style: "normal";
+	font-weight: 600;
+	src: local("※"), url("../fonts/NotoSans-Bold.woff2") format("woff2"), url("../fonts/NotoSans-Bold.woff") format("woff");
+}
+
+@font-face {
+	font-family: "nexon";
+	font-style: "normal";
+	font-weight: 400;
+	src: local("※"), url("../fonts/NEXON Lv1 Gothic OTF.eot") format('embedded-opentype'), url("../fonts/NEXON Lv1 Gothic OTF.woff") format("woff");
+}
+
+@font-face {
+	font-family: "nexon";
+	font-style: "normal";
+	font-weight: 600;
+	src: local("※"), url("../fonts/NEXON Lv1 Gothic OTF Bold.eot") format('embedded-opentype'), url("../fonts/NEXON Lv1 Gothic OTF Bold.woff") format("woff");
+}

@@ -1,0 +1,36 @@
+.popOpen{display: block !important;}
+.popWrap{display: none; position: relative;width: 100%;max-width: 1920px;height: 100%;min-height: 986px;}
+/* .mask{width: 100%;height: 100vh;min-height: 986px;position: absolute;z-index: 10;background-color: rgba(0,0,0,0.5);} */
+.popLayer{position: absolute;z-index: 11;background-color: #fff;box-shadow: 0 4px 30px 0px rgba(49,49,49,0.5);top: 50%;left: 50%;transform: translate(-50%,-50%);width: 35%;min-width: 600px;}
+.popLayer.commonPop{width: 180px;min-width: 100px;border-radius: 5px;}
+.popTit{background-color: #456ded;color: #fff;padding: 15px 20px;font-size: 20px;font-weight: 400;position: relative;}
+.popLayer.commonPop .popTit{font-size: 0.875em;padding: 7px 15px;height: 30px;border-radius: 5px 5px 0 0;}
+.popTit .setBtn{background-image: url(/pb/img/common/topSetIcon.png);border: none;background-color: transparent;background-repeat: no-repeat; width: 18px;height: 18px;vertical-align: middle;position: absolute;right: 28px;top: 6px;}
+.popTit .closeBtnType2{background-image: url(/pb/img/common/closeType1.png);background-repeat: no-repeat;border: none;background-color: transparent;width: 18px;height: 18px;vertical-align: middle;position: absolute;right: 5px;top: 8px;}
+.popTit .closeBtn{position: absolute;right: 3%;border: none;background-color: transparent;background-image: url(/pb/img/common/closeType2.png);background-repeat: no-repeat;width: 23px;cursor: pointer}
+.popCont{padding: 30px 40px;text-align: center;}
+.popLayer.commonPop .popCont{background-color: #fff;z-index: 1;color: #333;width: 100%;border-radius: 0 0 5px 5px;padding: 10px 15px;font-size: 0.875em;}
+.popLayer.commonPop .popCont ul li{list-style: url(/pb/img/common/listType3.png);padding-bottom: 8px;margin-bottom: 8px; border-bottom: 1px solid #e5e5e5;list-style-position: inside;}
+.popLayer.commonPop .popCont ul li:last-child{margin-bottom: 0;}
+.scrollWrap{overflow-y: scroll;max-height: 712px;}
+.bgTitType1{width: 100%;padding: 25px 55px;background-color: #f5f5f5;border: 1px solid #e5e5e5;border-radius: 5px;font-weight: 500;margin: 0 auto}
+.titBtm{text-align: right;margin: 12px 0 36px 0;}
+.svWrap{border-top: 2px solid #456ded;border-bottom: 1px dashed #c9c9ca;}
+.svList{padding: 20px 0;width: 100%;text-align: left;font-size: 1em;border-bottom: 1px dashed #c9c9ca;}
+.svList:last-child{border-bottom: none;}
+.svList p{margin-bottom: 15px;font-weight: 400;}
+.svList ul li{margin-bottom: 10px;}
+.svList ul li:last-child{margin-bottom: 0;}
+.svList input[type="radio"]+label+label{margin-left: 5px;vertical-align:unset;}
+.svList textarea{width: 100%;height: 70px;border-radius: 0;}
+.svList input[type="checkbox"]+label+label{margin-left: 5px;vertical-align:unset;}
+/* .chartType1{width: 100%;height: 200px;background-color: #aaa;}
+.chartType2{width: 80%;height: 15px;display: inline-block;background-color: #e8e8e8;border-radius: 8px;vertical-align: middle;margin-top: -20px;overflow: hidden;}
+.chartType2+p{display: inline-block;vertical-align: middle;margin-top: -10px}
+.rsuValue{width: 80%;height: 100%;background-color: #ffa632} */
+
+
+/* 반응형 */
+@media screen and (max-width:787px){
+	.popLayer{min-width: 80%}
+}

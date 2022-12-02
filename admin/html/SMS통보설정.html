@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<link rel="stylesheet" href="/iansan/admin/css/reset.css">
+	<link rel="stylesheet" href="/iansan/admin/css/common.css">
+	<link rel="stylesheet" href="/iansan/admin/css/content.css">
+
+	<link rel="stylesheet" href="/iansan/admin/css/popup.css">
+
+	<!-- <link rel="stylesheet" href="/iansan/admin/css/reset2.css"> -->
+	<script src="/iansan/admin/js/jquery-3.5.0.js"></script>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<script src="/js/jquery.js"></script>
+	<meta http-equiv="Content-Language" content="ko">
+	<link href="/css/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	<header>
+		<!-- common popup -->
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				즐겨찾기 매뉴 <input type="button" class="setBtn" onclick="location.href='/sym/mnu/mcm/QuickMenuMng.do'"><input
+					type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+
+				</ul>
+			</div>
+		</div>
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				회원정보 <input type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+					<li
+						onclick="goMenuPage('2100000', '/uss/umt/user/EgovUserSelectUpdtView.do?selectedId=USRCNFRM_00000004912');"
+						style="cursor:pointer">회원정보 수정</li>
+					<li onclick="location.href='/uat/uia/actionLogout.do'" style="cursor:pointer">로그아웃</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //common popup -->
+
+		<h1>
+			<a href="/cmm/main/mainPage.do"><img src="/img/adminLogo2.png" alt="로고이미지"></a>
+		</h1>
+		<div class="topRight">
+			<input type="button" class="allMenu" style="display:none;">
+			<ul class="inline">
+				<!-- <li><input type="button" class="quickSiteBtn" onclick="window.open('about:blank').location.href='/web/main/mainPage.do'"></li> -->
+			</ul>
+			<div class="infoWrap">
+				<ul class="inline">
+					<li>
+						<a href="#" onclick="sessionExpend(); return false;">
+							<img src="/iansan/admin/img/common/topTimeOut.png" alt="타임아웃 아이콘">
+						</a>
+						<p>로그인 세션 타임아웃 시간 :
+							<span id="ViewTimer">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</span></p>
+					</li>
+					<li>
+						<img src="/iansan/admin/img/common/topTime.png" alt="타임 아이콘">
+						<p>최종접속일시 : <span>2022-06-20 14:45</span></p>
+					</li>
+				</ul>
+				<div class="pfWrap">
+					<div class="pfImg">
+						<!-- <img src="/iansan/admin/img/pfImg.jpg" alt="개인이미지"> -->
+					</div>
+					<ul>
+						<li class="pfName">admin999</li>
+						<li class="pfPosi">짙은퍼블리셔관리자계정</li>
+					</ul>
+					<input type="button" class="downBtn" onclick="cmnPopOpen(this,1)">
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+
+	<!-- 메뉴 시작 -->
+	<nav class="leftMenu">
+		<ul>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu1.png" alt="홈페이지관리메뉴 아이콘">
+				<p>홈페이지관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('3100000', '/uss/ion/pwm/mainzoneList.do')" id="top_href_3100000"
+						value='메인비주얼관리'>
+						<a href="#">메인비주얼관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3120000', '/uss/ion/pwm/listPopup.do')" id="top_href_3120000"
+						value='팝업관리'>
+						<a href="#">팝업관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3200000', '/cop/bbs/SelectBBSMasterInfs.do')" id="top_href_3200000"
+						value='게시판관리'>
+						<a href="#">게시판관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3300000', '/uss/ion/cnt/contentList.do')" id="top_href_3300000"
+						value='콘텐츠관리'>
+						<a href="#">콘텐츠관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3500000', '/uss/ion/acad/acadList.do')" id="top_href_3500000"
+						value='학사일정/입시일정/총장일정'>
+						<a href="#">학사일정/입시일정/총장일정</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3700000', '/uss/ion/famc/familyCompList.do')" id="top_href_3700000"
+						value='가족회사신청관리'>
+						<a href="#">가족회사신청관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3900000', '/uss/ion/dormi/dormitoryBigList.do')" id="top_href_3900000"
+						value='연연생활관 입사신청 관리'>
+						<a href="#">연연생활관 입사신청 관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3800000', '/uss/orgChart/OrgChartManage.do')" id="top_href_3800000"
+						value='조직도'>
+						<a href="#">조직도</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3110000', '/uss/ion/prof/ProfessorList.do')" id="top_href_3110000"
+						value='교수진'>
+						<a href="#">교수진</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu2.png" alt="관리자관리메뉴 아이콘">
+				<p>관리자관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('2100000', '/uss/umt/user/EgovUserManage.do')" id="top_href_2100000"
+						value='관리자관리'>
+						<a href="#">관리자관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2200000', '/uss/umt/mber/EgovMberManage.do')" id="top_href_2200000"
+						value='사용자관리(회원)'>
+						<a href="#">사용자관리(회원)</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2300000', '/sym/mnu/mcm/EgovMenuCreatManageSelect.do')"
+						id="top_href_2300000" value='권한별메뉴관리'>
+						<a href="#">권한별메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu5.png" alt="메뉴관리메뉴 아이콘">
+				<p>메뉴관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('5100000', '/sym/mnu/mcm/EgovMenuCreatSelectJtree.do')"
+						id="top_href_5100000" value='메뉴관리'>
+						<a href="#">메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu7.png" alt="Q&A관리메뉴 아이콘">
+				<p>Q&A관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('610000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000713')"
+						id="top_href_610000" value='Q&A'>
+						<a href="#">Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('620000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000891')"
+						id="top_href_620000" value='연연생활관 Q&A'>
+						<a href="#">연연생활관 Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('630000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000902')"
+						id="top_href_630000" value='소통마당'>
+						<a href="#">소통마당</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu8.png" alt="로그관리메뉴 아이콘">
+				<p>로그관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('7910000', '/sym/log/clg/SelectLoginLogList.do')" id="top_href_7910000"
+						value='관리자로그리스트'>
+						<a href="#">관리자로그리스트</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu9.png" alt="운영관리메뉴 아이콘">
+				<p>운영관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('8400000', '/uss/ion/fms/fmsFileList.do')" id="top_href_8400000"
+						value='첨부파일관리'>
+						<a href="#">첨부파일관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8600000', '/sym/ccm/ccc/EgovCcmCmmnCodeTree.do')" id="top_href_8600000"
+						value='코드관리'>
+						<a href="#">코드관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8200000', '/sym/site/IndexPageMng.do')" id="top_href_8200000"
+						value='사용자최초 페이지 설정관리'>
+						<a href="#">사용자최초 페이지 설정관리</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="btnWrap">
+			<ul>
+				<!-- <li><button>
+                        <a href="/cmm/fms/FileDown.do?atchFileId=FILE_000000000008311&amp;fileSn=0">
+                        <p>관리자 <span>매뉴얼</span> </p><img src="/iansan/admin/img/common/leftBtnIcon1.png" alt="관리자 매뉴얼 아이콘">
+                        </button>
+                        </a>
+                    </li> -->
+				<li>
+					<a href="/web/main/mainPage.do" target="_blank">
+						<button>
+							<p>홈페이지<span> 바로가기</span></p><img src="/iansan/admin/img/common/leftBtnIcon2.png" alt="홈페이지바로가기 아이콘">
+						</button>
+					</a>
+					<!-- 최고관리자만 구글보이기 -->
+					<a href="https://analytics.google.com/analytics/web/?hl=ko&pli=1#/p286604442/reports/reportinghub"
+						target="_blank" style="display: inline-block; margin-top: 10px; ">
+						<button>
+							<p>구글애널리틱스<span> 바로가기</span></p>
+						</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</nav>
+	<!-- 메뉴 끝 -->
+
+	<!-- body 시작 -->
+	<div class="contWrap">
+		<div class="pageTitle">
+			<div class="pageIcon"><img src="/iansan/admin/img/pageTitIcon4.png" alt=""></div>
+			<h2 class="titType1 c_222222 fwBold">조직도</h2>
+			<p class="tType6 c_999999">본사 및 지사 임직원을 조직별로 관리할 수 있습니다.</p>
+		</div>
+		<div class="pageNav">
+			<img src="/iansan/admin/img/common/homeIcon.png" alt="홈이미지">&ensp;>&ensp;<p class="topDepth">홈페이지관리</p>
+			&ensp;>&ensp;<p class="subDepth">매뉴관리</p>
+		</div>
+
+		<!-- 컨텐츠 영역 -->
+		<div class="pageCont">
+			<div class="tab-menu">
+				<ul>
+					<li><a href="#" onclick="listLoad('1'); return false;" class="on">정기교육</a></li>
+					<li><a href="#" onclick="listLoad('2'); return false;">수시교육</a></li>
+				</ul>
+			</div>
+			<div class="tableWrap">
+				<table class="tbType4">
+					<colgroup>
+						<col style="width:20%">
+						<col style="width:70%">
+						<col style="width:10%">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>상황</th>
+							<th>메시지 내용</th>
+							<th>관리</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th class="v_mid">교육신청</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10" class="sms_cont">[안산시평생학습관] 2022년 상반기 수강신청 완료</textarea>
+								<p class="right sms_word">[49] / 80byte</p>
+							</td>
+							<td>
+								<input type="button" class="btn sm bg_blue" value="적용">
+								<input type="button" class="btn sm bg_gray" value="삭제">
+							</td>
+						</tr>
+						<tr>
+							<th class="v_mid">수강료 납부 (신용카드)</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10" class="sms_cont">[안산시평생학습관] 수강료납부 (신용카드) 완료</textarea>
+								<p class="right sms_word">[49] / 80byte</p>
+							</td>
+							<td>
+								<input type="button" class="btn sm bg_blue" value="적용">
+								<input type="button" class="btn sm bg_gray" value="삭제">
+							</td>
+						</tr>
+						<tr>
+							<th class="v_mid">수강료 납부 (실시간 계좌이체)</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10" class="sms_cont">[안산시평생학습관] 수강료납부 (실시간 계좌이체) 완료</textarea>
+								<p class="right sms_word">[49] / 80byte</p>
+							</td>
+							<td>
+								<input type="button" class="btn sm bg_blue" value="적용">
+								<input type="button" class="btn sm bg_gray" value="삭제">
+							</td>
+						</tr>
+						<tr>
+							<th class="v_mid">수강료 납부 (가상계좌 생성)</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10"
+									class="sms_cont">[안산시평생학습관] 수강료 가상계좌 농협 111111111111111</textarea>
+								<p class="right sms_word">[49] / 80byte</p>
+							</td>
+							<td>
+								<input type="button" class="btn sm bg_blue" value="적용">
+								<input type="button" class="btn sm bg_gray" value="삭제">
+							</td>
+						</tr>
+						<tr>
+							<th class="v_mid">수강료 납부 (가상계좌) 완료</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10" class="sms_cont">[안산시평생학습관] 수강료입금(가상계좌) 확인 완료</textarea>
+								<p class="right sms_word">[49] / 80byte</p>
+							</td>
+							<td>
+								<input type="button" class="btn sm bg_blue" value="적용">
+								<input type="button" class="btn sm bg_gray" value="삭제">
+							</td>
+						</tr>
+						<tr>
+							<th class="v_mid">수강 취소<br>(미납/면제서류 미제출)</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10"
+									class="sms_cont">[안산시평생학습관] 수강료미납(면제서류미제출)로 수강이 취소 되었습니다.</textarea>
+								<p class="right sms_word">[49] / 80byte</p>
+							</td>
+							<td>
+								<input type="button" class="btn sm bg_blue" value="적용">
+								<input type="button" class="btn sm bg_gray" value="삭제">
+							</td>
+						</tr>
+						<tr>
+							<th class="v_mid">수강 취소 및 환불 처리</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10"
+									class="sms_cont">[안산시평생학습관] 수강 취소에 따른 수강료가 환불 완료되었습니다.</textarea>
+								<p class="right sms_word">[49] / 80byte</p>
+							</td>
+							<td>
+								<input type="button" class="btn sm bg_blue" value="적용">
+								<input type="button" class="btn sm bg_gray" value="삭제">
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+
+
+		</div>
+		<!-- // 컨텐츠 영역 -->
+
+	</div>
+	<!-- body 끝 -->
+
+</body>
+
+</html>

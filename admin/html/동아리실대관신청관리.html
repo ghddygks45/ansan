@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<link rel="stylesheet" href="/iansan/admin/css/reset.css">
+	<link rel="stylesheet" href="/iansan/admin/css/common.css">
+	<link rel="stylesheet" href="/iansan/admin/css/content.css">
+
+	<link rel="stylesheet" href="/iansan/admin/css/popup.css">
+
+	<!-- <link rel="stylesheet" href="/iansan/admin/css/reset2.css"> -->
+	<script src="/iansan/admin/js/jquery-3.5.0.js"></script>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<script src="/js/jquery.js"></script>
+	<meta http-equiv="Content-Language" content="ko">
+	<link href="/css/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	<header>
+		<!-- common popup -->
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				즐겨찾기 매뉴 <input type="button" class="setBtn" onclick="location.href='/sym/mnu/mcm/QuickMenuMng.do'"><input
+					type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+
+				</ul>
+			</div>
+		</div>
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				회원정보 <input type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+					<li
+						onclick="goMenuPage('2100000', '/uss/umt/user/EgovUserSelectUpdtView.do?selectedId=USRCNFRM_00000004912');"
+						style="cursor:pointer">회원정보 수정</li>
+					<li onclick="location.href='/uat/uia/actionLogout.do'" style="cursor:pointer">로그아웃</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //common popup -->
+
+		<h1>
+			<a href="/cmm/main/mainPage.do"><img src="/img/adminLogo2.png" alt="로고이미지"></a>
+		</h1>
+		<div class="topRight">
+			<input type="button" class="allMenu" style="display:none;">
+			<ul class="inline">
+				<!-- <li><input type="button" class="quickSiteBtn" onclick="window.open('about:blank').location.href='/web/main/mainPage.do'"></li> -->
+			</ul>
+			<div class="infoWrap">
+				<ul class="inline">
+					<li>
+						<a href="#" onclick="sessionExpend(); return false;">
+							<img src="/iansan/admin/img/common/topTimeOut.png" alt="타임아웃 아이콘">
+						</a>
+						<p>로그인 세션 타임아웃 시간 :
+							<span id="ViewTimer">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</span></p>
+					</li>
+					<li>
+						<img src="/iansan/admin/img/common/topTime.png" alt="타임 아이콘">
+						<p>최종접속일시 : <span>2022-06-20 14:45</span></p>
+					</li>
+				</ul>
+				<div class="pfWrap">
+					<div class="pfImg">
+						<!-- <img src="/iansan/admin/img/pfImg.jpg" alt="개인이미지"> -->
+					</div>
+					<ul>
+						<li class="pfName">admin999</li>
+						<li class="pfPosi">짙은퍼블리셔관리자계정</li>
+					</ul>
+					<input type="button" class="downBtn" onclick="cmnPopOpen(this,1)">
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+
+	<!-- 메뉴 시작 -->
+	<nav class="leftMenu">
+		<ul>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu1.png" alt="홈페이지관리메뉴 아이콘">
+				<p>홈페이지관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('3100000', '/uss/ion/pwm/mainzoneList.do')" id="top_href_3100000"
+						value='메인비주얼관리'>
+						<a href="#">메인비주얼관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3120000', '/uss/ion/pwm/listPopup.do')" id="top_href_3120000"
+						value='팝업관리'>
+						<a href="#">팝업관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3200000', '/cop/bbs/SelectBBSMasterInfs.do')" id="top_href_3200000"
+						value='게시판관리'>
+						<a href="#">게시판관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3300000', '/uss/ion/cnt/contentList.do')" id="top_href_3300000"
+						value='콘텐츠관리'>
+						<a href="#">콘텐츠관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3500000', '/uss/ion/acad/acadList.do')" id="top_href_3500000"
+						value='학사일정/입시일정/총장일정'>
+						<a href="#">학사일정/입시일정/총장일정</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3700000', '/uss/ion/famc/familyCompList.do')" id="top_href_3700000"
+						value='가족회사신청관리'>
+						<a href="#">가족회사신청관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3900000', '/uss/ion/dormi/dormitoryBigList.do')" id="top_href_3900000"
+						value='연연생활관 입사신청 관리'>
+						<a href="#">연연생활관 입사신청 관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3800000', '/uss/orgChart/OrgChartManage.do')" id="top_href_3800000"
+						value='조직도'>
+						<a href="#">조직도</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3110000', '/uss/ion/prof/ProfessorList.do')" id="top_href_3110000"
+						value='교수진'>
+						<a href="#">교수진</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu2.png" alt="관리자관리메뉴 아이콘">
+				<p>관리자관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('2100000', '/uss/umt/user/EgovUserManage.do')" id="top_href_2100000"
+						value='관리자관리'>
+						<a href="#">관리자관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2200000', '/uss/umt/mber/EgovMberManage.do')" id="top_href_2200000"
+						value='사용자관리(회원)'>
+						<a href="#">사용자관리(회원)</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2300000', '/sym/mnu/mcm/EgovMenuCreatManageSelect.do')"
+						id="top_href_2300000" value='권한별메뉴관리'>
+						<a href="#">권한별메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu5.png" alt="메뉴관리메뉴 아이콘">
+				<p>메뉴관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('5100000', '/sym/mnu/mcm/EgovMenuCreatSelectJtree.do')"
+						id="top_href_5100000" value='메뉴관리'>
+						<a href="#">메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu7.png" alt="Q&A관리메뉴 아이콘">
+				<p>Q&A관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('610000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000713')"
+						id="top_href_610000" value='Q&A'>
+						<a href="#">Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('620000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000891')"
+						id="top_href_620000" value='연연생활관 Q&A'>
+						<a href="#">연연생활관 Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('630000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000902')"
+						id="top_href_630000" value='소통마당'>
+						<a href="#">소통마당</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu8.png" alt="로그관리메뉴 아이콘">
+				<p>로그관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('7910000', '/sym/log/clg/SelectLoginLogList.do')" id="top_href_7910000"
+						value='관리자로그리스트'>
+						<a href="#">관리자로그리스트</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu9.png" alt="운영관리메뉴 아이콘">
+				<p>운영관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('8400000', '/uss/ion/fms/fmsFileList.do')" id="top_href_8400000"
+						value='첨부파일관리'>
+						<a href="#">첨부파일관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8600000', '/sym/ccm/ccc/EgovCcmCmmnCodeTree.do')" id="top_href_8600000"
+						value='코드관리'>
+						<a href="#">코드관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8200000', '/sym/site/IndexPageMng.do')" id="top_href_8200000"
+						value='사용자최초 페이지 설정관리'>
+						<a href="#">사용자최초 페이지 설정관리</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="btnWrap">
+			<ul>
+				<!-- <li><button>
+                        <a href="/cmm/fms/FileDown.do?atchFileId=FILE_000000000008311&amp;fileSn=0">
+                        <p>관리자 <span>매뉴얼</span> </p><img src="/iansan/admin/img/common/leftBtnIcon1.png" alt="관리자 매뉴얼 아이콘">
+                        </button>
+                        </a>
+                    </li> -->
+				<li>
+					<a href="/web/main/mainPage.do" target="_blank">
+						<button>
+							<p>홈페이지<span> 바로가기</span></p><img src="/iansan/admin/img/common/leftBtnIcon2.png" alt="홈페이지바로가기 아이콘">
+						</button>
+					</a>
+					<!-- 최고관리자만 구글보이기 -->
+					<a href="https://analytics.google.com/analytics/web/?hl=ko&pli=1#/p286604442/reports/reportinghub"
+						target="_blank" style="display: inline-block; margin-top: 10px; ">
+						<button>
+							<p>구글애널리틱스<span> 바로가기</span></p>
+						</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</nav>
+	<!-- 메뉴 끝 -->
+
+	<!-- body 시작 -->
+	<div class="contWrap">
+		<div class="pageTitle">
+			<div class="pageIcon"><img src="/iansan/admin/img/pageTitIcon4.png" alt=""></div>
+			<h2 class="titType1 c_222222 fwBold">조직도</h2>
+			<p class="tType6 c_999999">본사 및 지사 임직원을 조직별로 관리할 수 있습니다.</p>
+		</div>
+		<div class="pageNav">
+			<img src="/iansan/admin/img/common/homeIcon.png" alt="홈이미지">&ensp;>&ensp;<p class="topDepth">홈페이지관리</p>
+			&ensp;>&ensp;<p class="subDepth">매뉴관리</p>
+		</div>
+
+		<!-- 컨텐츠 영역 -->
+		<div class="pageCont">
+			<div class="mgb40">
+				<table class="tbType2">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">동아리실 현황</th>
+							<td>
+								<span class="radio">
+									<input type="radio" name="chk1" id="chk1_all">
+									<label for="chk1_all" style="vertical-align: top;"></label>
+									<label for="chk1_all" style="vertical-align: top;">전체</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" name="chk1" id="chk1_1" class="blind">
+									<label for="chk1_1"></label>
+									<label for="chk1_1">일반실</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" name="chk1" id="chk1_2" class="blind">
+									<label for="chk1_2"></label>
+									<label for="chk1_2">방음실</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" name="chk1" id="chk1_3" class="blind">
+									<label for="chk1_3"></label>
+									<label for="chk1_3">미디어실</label>
+								</span>
+								<span class="checkbox">
+									<input type="checkbox" name="chk1" id="chk1_4" class="blind">
+									<label for="chk1_4"></label>
+									<label for="chk1_4">컴퓨터실</label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">승인여부</th>
+							<td>
+								<span class="radio">
+									<input type="radio" name="chk2" id="chk2_all">
+									<label for="chk2_all"></label>
+									<label for="chk2_all">전체</label>
+								</span>
+								<span class="radio">
+									<input type="radio" name="chk2" id="chk2_1">
+									<label for="chk2_1"></label>
+									<label for="chk2_1">대기</label>
+								</span>
+								<span class="radio">
+									<input type="radio" name="chk2" id="chk2_2">
+									<label for="chk2_2"></label>
+									<label for="chk2_2">반려</label>
+								</span>
+								<span class="radio">
+									<input type="radio" name="chk2" id="chk2_3">
+									<label for="chk2_3"></label>
+									<label for="chk2_3">승인</label>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">사용기간</th>
+							<td>
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly=""
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly=""
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">검색어</th>
+							<td>
+								<select name="bbsTab" id="bbsTab">
+									<option value="">검색조건</option>
+									<option value=""></option>
+								</select>
+								<input type="text" style="width:40%">
+								<input type="button" class="btnType1" value="검색" style="background-color: #456ded;">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mgb40">
+				<div class="tab-menu">
+					<ul>
+						<li><a href="#" onclick="listLoad('1'); return false;">정기교육</a></li>
+						<li><a href="#" onclick="listLoad('2'); return false;" class="on">수시교육</a></li>
+					</ul>
+				</div>
+				<div class="listTop txt-center">
+					<span>
+						<input type="button" id="prevQuater" style="display: none;">
+						<label for="prevQuater"></label>
+						<label for="prevQuater" style="cursor: pointer; vertical-align: middle;">◀</label>
+					</span>
+					<p class="tType2" style="margin: 0; width: auto;">
+						2022년 3/4분기 동아리실 시간표
+					</p>
+					<span>
+						<input type="button" id="prevQuater" style="display: none;">
+						<label for="prevQuater"></label>
+						<label for="prevQuater" style="cursor: pointer; vertical-align: middle;">▶</label>
+					</span>
+					<div class="right" style="margin-top: 8px;">
+						2022년 7월 1일(금) ~ 9월 30일(금)
+					</div>
+				</div>
+				<div class="tableWrap" style="margin-top: 15px;">
+					<table class="tbType4">
+						<colgroup>
+							<col>
+							<col>
+							<col style="width: 14%;">
+							<col style="width: 14%;">
+							<col style="width: 14%;">
+							<col style="width: 14%;">
+							<col style="width: 14%;">
+							<col style="width: 14%;">
+						</colgroup>
+						<thead>
+							<tr>
+								<th scope="col" colspan="2">구분</th>
+								<th scope="col">월</th>
+								<th scope="col">화</th>
+								<th scope="col">수</th>
+								<th scope="col">목</th>
+								<th scope="col">금</th>
+								<th scope="col">토</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td rowspan="0">203호<br>(방음실)</td>
+								<td>9:30 ~ 12:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>12:30 ~ 15:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>15:30 ~ 18:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>18:00 ~ 21:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+						</tbody>
+						<tbody style="background-color: #456ded22;">
+							<tr>
+								<td rowspan="0">304호<br>(컴퓨터실)</td>
+								<td>10:00 ~ 13:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>14:00 ~ 17:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>18:00 ~ 21:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td rowspan="0">305호<br>(일반실)</td>
+								<td>10:00 ~ 13:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>14:00 ~ 17:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>18:00 ~ 21:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+						</tbody>
+						<tbody style="background-color: #e1920022;">
+							<tr>
+								<td rowspan="0">306호<br>(미디어실)</td>
+								<td>10:00 ~ 13:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>14:00 ~ 17:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>18:00 ~ 21:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+						</tbody>
+						<tbody>
+							<tr>
+								<td rowspan="0">307호<br>(일반실)</td>
+								<td>10:00 ~ 13:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>14:00 ~ 17:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+							<tr>
+								<td>18:00 ~ 21:00</td>
+								<td></td>
+								<td>상록수 취타대</td>
+								<td>안산상록수밴드</td>
+								<td>국악동아리연합회</td>
+								<td></td>
+								<td>상록유스오케스트라</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="mgb30">
+				<span class="tbTit">신청자 정보</span>
+				<table class="tbType2">
+					<colgroup>
+						<col style="width: 20%;">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">신청자</th>
+							<td>홍길동(gildong12)</td>
+						</tr>
+						<tr>
+							<th scope="row">신청자 전화번호</th>
+							<td>010-1234-5678</td>
+						</tr>
+						<tr>
+							<th scope="row">신청자 이메일</th>
+							<td>chulydat@naver.com</td>
+						</tr>
+						<tr>
+							<th scope="row">대표자</th>
+							<td>이순신(sunsin12)</td>
+						</tr>
+						<tr>
+							<th scope="row">대표자 전화번호</th>
+							<td>010-1234-5678</td>
+						</tr>
+						<tr>
+							<th scope="row">대표자 이메일</th>
+							<td>chulydat@naver.com</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<span class="tbTit">대관 신청 정보</span>
+				<table class="tbType2">
+					<colgroup>
+						<col style="width: 20%;">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">동아리명</th>
+							<td>안산시평생학습관</td>
+						</tr>
+						<tr>
+							<th scope="row">신청 동아리실</th>
+							<td>· 일반실 (1: 305호 / 2: 307호) / · 컴퓨터실 / · 미디어실 / · 방음실</td>
+						</tr>
+						<tr>
+							<th scope="row">사용기간</th>
+							<td>2022년 7월 1일 부터 2022년 9월 1일 까지</td>
+						</tr>
+						<tr>
+							<th scope="row">주 횟수</th>
+							<td>주 2회</td>
+						</tr>
+						<tr>
+							<th scope="row">사용인원 / 전체인원</th>
+							<td>12명 / 50명</td>
+						</tr>
+						<tr>
+							<th scope="row">신청 요일 및 시간</th>
+							<td>월요일 (09:30~12:00) / 월요일 (15:30~18:00) / 수요일 (09:30~12:00) / 목요일 (12:30~15:00)</td>
+						</tr>
+						<tr>
+							<th scope="row">사용목적</th>
+							<td>안산시평생학습관 학습 동아리 모임입니다.</td>
+						</tr>
+						<tr>
+							<th scope="row">승인여부</th>
+							<td>접수완료 / 승인완료 / 반려</td>
+						</tr>
+					</tbody>
+				</table>
+				<script>
+					function popopOpen(id) {
+						$('#' + id).show();
+					}
+
+					function popopClose(id) {
+						$('#' + id).hide();
+					}
+				</script>
+				<div class="btn_box" style="margin-top: 20px;">
+					<div class="l">
+						<input type="button" class="btn md bg_gray" value="목록">
+					</div>
+					<div class="r">
+						<input type="button" class="btn md bg_green" value="수정">
+						<input type="button" class="btn md bg_blue" value="승인하기" onclick="popopOpen('popupLarge')">
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="layerpopup_wrap" id="popupLarge" style="display: block;">
+				<div class="popup large">
+					<div class="pop_top">
+						<div class="pop_tit">승인하기</div>
+						<a href="#n" class="btn_close" onclick="popopClose('popupLarge');return false;"><img
+								src="/iansan/admin/img/common/btn-popClose.png" alt=""></a>
+					</div>
+					<div class="pop_con">
+						<div class="tableWrap">
+							<table class="tbType4">
+								<colgroup>
+									<col>
+									<col>
+									<col style="width: 13%;">
+									<col style="width: 13%;">
+									<col style="width: 13%;">
+									<col style="width: 13%;">
+									<col style="width: 13%;">
+									<col style="width: 13%;">
+								</colgroup>
+								<thead>
+									<tr>
+										<th scope="col" colspan="2">구분</th>
+										<th scope="col">월</th>
+										<th scope="col">화</th>
+										<th scope="col">수</th>
+										<th scope="col">목</th>
+										<th scope="col">금</th>
+										<th scope="col">토</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td rowspan="0">203호<br>(방음실)</td>
+										<td>9:30 ~ 12:00</td>
+										<td class="order_apply"><input type="checkbox" class="single_checkbox"></td>
+										<td class="order_disabled">안젤리스</td>
+										<td class="order_error">안젤리스</td>
+										<td class="order_disabled">안젤리스</td>
+										<td class="order_disabled">안젤리스</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>12:30 ~ 15:00</td>
+										<td class="order_complete"><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td class="order_apply"><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>15:30 ~ 18:00</td>
+										<td class="order_apply"><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>18:00 ~ 21:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td rowspan="0">304호<br>(컴퓨터실)</td>
+										<td>10:00 ~ 13:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td class="order_disabled">안젤리스</td>
+										<td class="order_disabled">신명나눔</td>
+										<td class="order_disabled">얼쑤풍물단</td>
+										<td class="order_disabled">신명나눔</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>14:00 ~ 17:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>18:00 ~ 21:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td rowspan="0">305호<br>(일반실)</td>
+										<td>10:00 ~ 13:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>14:00 ~ 17:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>18:00 ~ 21:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td rowspan="0">306호<br>(미디어실)</td>
+										<td>10:00 ~ 13:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>14:00 ~ 17:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>18:00 ~ 21:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td rowspan="0">307호<br>(일반실)</td>
+										<td>10:00 ~ 13:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>14:00 ~ 17:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+									<tr>
+										<td>18:00 ~ 21:00</td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+										<td><input type="checkbox" class="single_checkbox"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="btn_box" style="margin-top: 20px;">
+							<div class="r">
+								<input type="button" class="btn md bg_gray" value="취소">
+								<input type="button" class="btn md bg_blue" value="확인">
+								<input type="button" class="btn md bg_green" value="반려" onclick="popopOpen('popupMedium')">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layerpopup_wrap" id="popupMedium" style="display: none;">
+				<div class="popup medium">
+					<div class="pop_top">
+						<div class="pop_tit">반려 사유 입력</div>
+						<a href="#n" class="btn_close" onclick="popopClose('popupMedium');return false;"><img
+								src="/iansan/admin/img/common/btn-popClose.png" alt=""></a>
+					</div>
+					<div class="pop_con">
+						<table class="tbType2">
+							<colgroup>
+								<col style="width: 20%">
+								<col style="width: 80%">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>사유입력</th>
+									<td>
+										<input type="text" name="" id="" style="width: 80%;" placeholder="ex) 예약이 마감되었습니다.">
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="btn_box mt20">
+							<div class="r">
+								<input type="button" class="btn md bg_gray" value="취소" onclick="popopClose('popupMedium');">
+								<input type="button" class="btn md bg_blue" value="확인">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- // 컨텐츠 영역 -->
+
+	</div>
+	<!-- body 끝 -->
+
+</body>
+
+</html>

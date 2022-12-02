@@ -1,0 +1,961 @@
+.search_type1 .inr {
+	.select_box {
+		display: block;
+		width: auto;
+
+		>div {
+			display: flex;
+		}
+	}
+
+	.input_box {
+		width: 100%;
+		margin-top: 7px;
+		padding-left: 0;
+	}
+
+	select {
+		width: 50%;
+
+		&+select {
+			margin-left: 5px;
+		}
+	}
+}
+
+.search_type2 .inr {
+	.select_box {
+		display: block;
+		width: auto;
+		margin-bottom: 7px;
+
+		>div {
+			display: flex;
+		}
+
+		select {
+			width: 50%;
+
+			&+select {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	.btm {
+		display: flex;
+
+		select,
+		.input_box {
+			width: 50%;
+		}
+
+		.input_box {
+			margin-left: 5px;
+			padding-left: 0;
+		}
+	}
+}
+
+.btn-link {
+	.board_section {
+		position: relative;
+		padding: 50px 60px 12px 12px;
+	}
+
+	.r_btn {
+		display: flex;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 47px;
+		height: 100%;
+		align-items: center;
+
+		&.mypg {
+			.cate_border {
+				position: absolute;
+				right: 13px;
+				top: 10px;
+			}
+		}
+	}
+
+	.btn_view {
+		display: block;
+		width: 35px;
+		height: 35px;
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		background-image: url(/iansan/images/sub/btn_ins_view.png);
+		background-size: 100%;
+	}
+}
+
+.network_map_api {
+	height: 200px;
+	margin-top: 10px;
+	border: 1px solid #d7d7d7;
+	background: #ddd;
+}
+
+.ins_wrap {
+	margin-top: 20px;
+}
+
+.ins_list {
+	padding: 15px;
+	border: 1px solid #d7d7d7;
+
+	&:not(:last-child) {
+		margin-bottom: 15px;
+	}
+
+	.pic {
+		display: none;
+	}
+
+	.info {
+		h4 {
+			font-weight: 500;
+			font-size: 15px;
+			color: #222;
+		}
+
+		.list_square {
+			margin-top: 5px;
+
+			span {
+				font-weight: 400;
+				color: #222;
+			}
+
+			a {
+				color: #0872ba;
+			}
+		}
+
+		p {
+			display: block;
+			display: -webkit-box;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			margin-top: 5px;
+		}
+	}
+}
+
+.btn_fnc {
+	margin-top: 15px;
+	text-align: right;
+
+	>a {
+		display: inline-flex;
+		width: 35px;
+		height: 35px;
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 100%;
+		vertical-align: top;
+	}
+
+	.view {
+		background-image: url(/iansan/images/sub/btn_ins_view.png);
+	}
+
+	.homepage {
+		margin-left: 2px;
+		background-image: url(/iansan/images/sub/btn_ins_homepage.png);
+	}
+}
+
+.int_view {
+	padding: 17px;
+	background: #f4f4f4;
+
+	.pic {
+		margin-bottom: 12px;
+		text-align: center;
+
+		>img {
+			max-width: 100%;
+		}
+	}
+
+	.info {
+		>h5 {
+			margin-bottom: 6px;
+			font-weight: 500;
+			font-size: 15px;
+			color: #222;
+		}
+
+		li>span {
+			font-weight: 400;
+			color: #222;
+		}
+	}
+}
+
+.int_txt {
+	margin-top: 15px;
+}
+
+.link_txt {
+	color: #0872ba;
+}
+
+.group_write {
+	margin-top: 10px;
+
+	>input[type=text] {
+		width: 100%;
+	}
+
+	>span {
+		display: block;
+		margin-top: 5px;
+	}
+}
+
+.year_inp {
+	margin-right: 5px;
+
+	>input {
+		width: 60px;
+		margin-right: 4px;
+	}
+}
+
+.mon_day_inp {
+	>input {
+		width: 40px;
+		margin-right: 4px;
+	}
+
+	&+.mon_day_inp {
+		margin-left: 5px;
+	}
+}
+
+.date {
+	display: inline-flex;
+	align-items: center;
+
+	>.date-inp {
+		position: relative;
+		width: 120px;
+
+		>input {
+			width: 100%;
+		}
+
+		>.ui-datepicker-trigger {
+			position: absolute;
+			right: 7px;
+			top: 9px;
+			width: 16px;
+			height: 16px;
+			overflow: hidden;
+			background: url(/iansan/images/common/btn_datepicker.png) no-repeat 0 0;
+			background-size: 16px;
+			text-indent: -1000%;
+		}
+	}
+
+	>.date_char {
+		margin: 0 5px;
+	}
+}
+
+.date_select {
+	display: inline-block;
+
+	&:first-child {
+		margin: 0 10px 2px 0;
+	}
+}
+
+.email_inp {
+	.email_inp1 {
+		width: 100%;
+		margin-right: 3px;
+	}
+
+	.email_inp2 {
+		width: 100%;
+		margin-left: 3px;
+	}
+
+	.wr1,
+	.wr2 {
+		display: flex;
+		align-items: center;
+	}
+
+	.wr2 {
+		margin-top: 5px;
+
+		>select {
+			width: 100%;
+		}
+	}
+}
+
+.etc_inp {
+	margin-top: 9px;
+
+	>input {
+		width: 100%;
+	}
+}
+
+.w_full {
+	width: 100%;
+}
+
+.inp_default {
+	width: 100%;
+}
+
+.addr_inp {
+
+	.addr1,
+	.addr2 {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+}
+
+.txt_green {
+	color: #448e20 !important;
+}
+
+.txt_blue {
+	color: #0872ba !important;
+}
+
+.txt_orange {
+	color: #ff8400 !important;
+}
+
+.txt_purple {
+	color: #685bd8 !important;
+}
+
+.txt_lightgreen {
+	color: #368b85 !important;
+}
+
+.board_section.mypage .sub_info .btn_area>.btn_outline {
+	flex: 1;
+	vertical-align: middle;
+}
+
+.board_section.mypage .sub_info .btn_area>.btn_outline {
+	margin-left: 4px;
+}
+
+.edu_result {
+	padding-right: 25px;
+
+	>strong {
+		font-weight: 300;
+		font-size: 12px;
+	}
+}
+
+.mobile .edu_con {
+	.btn_area {
+		flex: none !important;
+
+		>a {
+			flex: none !important;
+			width: 104px !important;
+		}
+	}
+}
+
+.payback {
+	padding: 15px;
+	background: #f4f4f4;
+}
+
+.payback_check {
+	margin-top: 12px;
+	padding: 10px 12px;
+	background: #fff;
+}
+
+.edu_check {
+	display: block;
+	overflow: hidden;
+	background: url(/iansan/images/sub/ico_check.png) no-repeat 50% 0;
+	text-indent: -1000%;
+}
+
+.q_list {
+	overflow: hidden;
+	border: 1px solid #d7d7d7;
+	border-radius: 6px;
+
+	&:not(:last-child) {
+		margin-bottom: 15px;
+	}
+
+	.q {
+		padding: 15px 30px 15px 50px;
+		background: #f4f4f4 url(/iansan/images/sub/ico_que.png) no-repeat 15px 50%;
+		background-size: 24px;
+
+		>h5 {
+			font-weight: 500;
+			font-size: 15px;
+			color: #222;
+		}
+	}
+
+	.a {
+		padding: 15px 30px 15px 50px;
+		background: url(/iansan/images/sub/ico_answer.png) no-repeat 15px 17px;
+		background-size: 24px;
+	}
+}
+
+.dis {
+	display: block;
+	margin-top: 6px;
+
+	input {
+		width: 80%;
+	}
+}
+
+.btn_pc {
+	display: none;
+}
+
+.line_top_none {
+	border-top: 0 !important;
+}
+
+.edu_process {
+	display: flex;
+	position: relative;
+
+	.edu_y {
+		flex: none;
+		display: block;
+		width: 60px;
+		height: 60px;
+		margin-right: 17px;
+		border-radius: 0 10px 0 10px;
+		background: #61ad34;
+		line-height: 60px;
+		text-align: center;
+		font-weight: 600;
+		font-size: 16px;
+		color: #fff;
+	}
+
+	.edu_li {
+		padding-top: 10px;
+
+		>strong {
+			display: block;
+			margin-bottom: 5px;
+			font-size: 14px;
+		}
+
+		li:not(:last-child) {
+			margin-bottom: 5px;
+		}
+	}
+
+	&:not(:last-child) {
+		&::before {
+			content: '';
+			position: absolute;
+			left: 30px;
+			top: 0;
+			z-index: -1;
+			width: 1px;
+			height: 100%;
+			background: #d7d7d7;
+		}
+
+		padding-bottom: 15px;
+	}
+}
+
+.chairman_txt {
+	>p:not(:last-child) {
+		margin-bottom: 7px;
+	}
+}
+
+.cateGray {
+	background: #999;
+	color: #fff;
+}
+
+.cateBlue {
+	background: #1b4692;
+	color: #fff;
+}
+
+.cateOrange {
+	background: #ff7200;
+	color: #fff;
+}
+
+@media all and (min-width: 1297px),
+print {
+	.chairman_txt {
+		>p:not(:last-child) {
+			margin-bottom: 12px;
+		}
+	}
+
+	.search_type1 .inr {
+		.select_box {
+			display: inline-block;
+
+			>div {
+				display: flex;
+			}
+		}
+
+		.input_box {
+			width: auto;
+			margin-top: 0;
+			padding-left: 0;
+		}
+
+		select {
+			width: 50%;
+
+			&+select {
+				margin-left: 5px;
+			}
+		}
+	}
+
+	.network_map_api {
+		height: 460px;
+		margin-top: 15px;
+	}
+
+	.ins_wrap {
+		margin-top: 30px;
+	}
+
+	.ins_list {
+		display: flex;
+		position: relative;
+		padding: 20px;
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+
+		.pic {
+			display: block;
+		}
+
+		.info {
+			flex: 1;
+			padding: 3px 0 0 40px;
+
+			h4 {
+				margin-bottom: 7px;
+				padding-right: 150px;
+				font-size: 19px;
+			}
+
+			.list_square {
+				margin-top: 5px;
+
+				span {
+					font-weight: 400;
+					color: #222;
+				}
+			}
+
+			p {
+				-webkit-line-clamp: 2;
+				height: 48px;
+				margin-top: 7px;
+			}
+		}
+	}
+
+	.btn_fnc {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		margin-top: 0;
+		text-align: left;
+
+		>a {
+			width: 44px;
+			height: 44px;
+		}
+
+		.homepage {
+			margin-left: 1px;
+		}
+	}
+
+	.link_txt {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.int_view {
+		display: flex;
+		padding: 25px;
+
+		.pic {
+			margin-bottom: 12px;
+			text-align: left;
+
+			>img {
+				width: 280px;
+				height: 180px;
+				max-width: none;
+			}
+		}
+
+		.info {
+			padding-left: 20px;
+
+			>h5 {
+				margin-bottom: 6px;
+				font-size: 19px;
+			}
+
+			li {
+				margin-bottom: 7px;
+			}
+		}
+	}
+
+	.int_txt {
+		margin-top: 17px;
+	}
+
+	.search_type2 .inr {
+		.select_box {
+			display: inline-block;
+			width: auto;
+			margin-bottom: 7px;
+
+			>div {
+				display: inline-block;
+			}
+
+			select {
+				width: auto;
+
+				&+select {
+					margin-left: 5px;
+				}
+			}
+		}
+
+		.btm {
+			display: inline-block;
+
+			select,
+			.input_box {
+				width: auto;
+			}
+
+			.input_box {
+				margin-left: 5px;
+				padding-left: 0;
+			}
+		}
+	}
+
+	.btn-link {
+		.board_section {
+			padding: 0;
+		}
+
+		.r_btn {
+			display: flex;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: auto;
+			height: 100%;
+			padding-right: 25px;
+			align-items: center;
+
+			&.mypg {
+				.cate_border {
+					position: static;
+					right: auto;
+					top: auto;
+					margin-right: 10px;
+				}
+			}
+		}
+
+		.btn_view {
+			width: 44px;
+			height: 44px;
+			background-size: auto;
+		}
+	}
+
+	.fix_box.num {
+		>span {
+			display: block;
+		}
+	}
+
+	.pagination+.btn_wrap {
+		margin-top: -35px;
+	}
+
+	.group_write {
+		display: inline-block;
+		margin-top: 0;
+
+		>input[type=text] {
+			width: 300px;
+		}
+
+		>span {
+			display: inline-block;
+			margin: 0 0 0 10px;
+		}
+	}
+
+	.year_inp {
+		margin-right: 5px;
+
+		>input {
+			width: 110px;
+			margin-right: 4px;
+		}
+	}
+
+	.mon_day_inp {
+		>input {
+			width: 70px;
+			margin-right: 4px;
+		}
+
+		&+.mon_day_inp {
+			margin-left: 5px;
+		}
+	}
+
+	.date {
+		>.date-inp {
+			width: 160px;
+
+			>.ui-datepicker-trigger {
+				right: 10px;
+				top: 11px;
+				width: 20px;
+				height: 20px;
+				background-size: auto;
+			}
+		}
+
+		>.date_char {
+			margin: 0 10px;
+		}
+	}
+
+	.date_select {
+
+		&:first-child {
+			margin: 0 10px 0 0;
+		}
+
+		.date-inp {
+			width: 134px;
+		}
+
+		select {
+			width: 87px;
+			padding-right: 33px;
+		}
+	}
+
+	.email_inp {
+		display: flex;
+
+		.email_inp1 {
+			width: 260px;
+			margin-right: 7px;
+		}
+
+		.email_inp2 {
+			width: 193px;
+			margin-left: 7px;
+		}
+
+		.wr1,
+		.wr2 {
+			display: inline-block;
+		}
+
+		.wr2 {
+			margin: 0 0 0 5px;
+
+			>select {
+				width: 193px;
+			}
+		}
+	}
+
+	.inp_default {
+		width: 300px;
+	}
+
+	.bg_network_02 {
+		background-image: url(/iansan/images/sub/bg_network03_top_info.png);
+	}
+
+	.bg_mype_member_01 {
+		background-image: url(/iansan/images/sub/bg_mypg_member_top_info01.png);
+	}
+
+	.addr_inp {
+		.addr1 {
+			width: 400px;
+			margin-right: 2px;
+		}
+
+		.addr2 {
+			width: 350px;
+		}
+	}
+
+	.board_section.mypage .sub_info .btn_area>.btn_outline {
+		flex: none;
+		width: 130px;
+	}
+
+	.board_section.mypage .sub_info .btn_area>.btn_outline {
+		margin: 5px 0 0 0;
+	}
+
+	.edu_result {
+		margin-bottom: 10px;
+		padding-right: 0;
+
+		>strong {
+			font-size: 15px;
+		}
+	}
+
+	.pc_th_w180 .div_th {
+		width: 180px !important;
+	}
+
+	.payback {
+		padding: 20px 25px 25px;
+	}
+
+	.payback_check {
+		margin-top: 15px;
+		padding: 17px 20px 20px;
+	}
+
+	.q_list {
+
+		&:not(:last-child) {
+			margin-bottom: 20px;
+		}
+
+		.q {
+			padding: 20px 30px 20px 75px;
+			background-position-x: 20px;
+			background-size: auto;
+
+			>h5 {
+				font-size: 18px;
+			}
+		}
+
+		.a {
+			padding: 21px 30px 18px 75px;
+			min-height: 69px;
+			background-position-x: 20px;
+			background-size: auto;
+		}
+
+		.group_write {
+			margin-top: -6px;
+			vertical-align: top;
+		}
+	}
+
+	.dis {
+		display: inline-block;
+		margin: -5px 0 0 0;
+		vertical-align: top;
+
+		input {
+			width: 300px;
+		}
+	}
+
+	.btn_pc {
+		display: inline-block;
+	}
+
+	.edu_process {
+		.edu_y {
+			width: 90px;
+			height: 90px;
+			margin-right: 24px;
+			line-height: 90px;
+			font-size: 22px;
+		}
+
+		.edu_li {
+			padding-top: 15px;
+
+			>strong {
+				margin-bottom: 7px;
+				font-size: 18px;
+			}
+
+			li:not(:last-child) {
+				margin-bottom: 10px;
+			}
+		}
+
+		&:not(:last-child) {
+			&::before {
+				left: 45px;
+			}
+
+			padding-bottom: 30px;
+		}
+	}
+
+	.list_check {
+		position: relative !important;
+		width: 131px !important;
+
+		.ck-lb {
+			position: absolute;
+			left: 13px;
+			top: 30px;
+		}
+	}
+
+}

@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+	<link rel="stylesheet" href="/iansan/admin/css/reset.css">
+	<link rel="stylesheet" href="/iansan/admin/css/common.css">
+	<link rel="stylesheet" href="/iansan/admin/css/content.css">
+
+	<link rel="stylesheet" href="/iansan/admin/css/popup.css">
+
+	<!-- <link rel="stylesheet" href="/iansan/admin/css/reset2.css"> -->
+	<script src="/iansan/admin/js/jquery-3.5.0.js"></script>
+	<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+	<script src="/js/jquery.js"></script>
+	<meta http-equiv="Content-Language" content="ko">
+	<link href="/css/jstree/themes/default/style.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+	<header>
+		<!-- common popup -->
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				즐겨찾기 매뉴 <input type="button" class="setBtn" onclick="location.href='/sym/mnu/mcm/QuickMenuMng.do'"><input
+					type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+
+				</ul>
+			</div>
+		</div>
+		<div class="popLayer commonPop" style="visibility:hidden;">
+			<div class="popTit">
+				회원정보 <input type="button" class="closeBtnType2">
+			</div>
+			<div class="popCont">
+				<ul class="listType1">
+					<li
+						onclick="goMenuPage('2100000', '/uss/umt/user/EgovUserSelectUpdtView.do?selectedId=USRCNFRM_00000004912');"
+						style="cursor:pointer">회원정보 수정</li>
+					<li onclick="location.href='/uat/uia/actionLogout.do'" style="cursor:pointer">로그아웃</li>
+				</ul>
+			</div>
+		</div>
+		<!-- //common popup -->
+
+		<h1>
+			<a href="/cmm/main/mainPage.do"><img src="/img/adminLogo2.png" alt="로고이미지"></a>
+		</h1>
+		<div class="topRight">
+			<input type="button" class="allMenu" style="display:none;">
+			<ul class="inline">
+				<!-- <li><input type="button" class="quickSiteBtn" onclick="window.open('about:blank').location.href='/web/main/mainPage.do'"></li> -->
+			</ul>
+			<div class="infoWrap">
+				<ul class="inline">
+					<li>
+						<a href="#" onclick="sessionExpend(); return false;">
+							<img src="/iansan/admin/img/common/topTimeOut.png" alt="타임아웃 아이콘">
+						</a>
+						<p>로그인 세션 타임아웃 시간 :
+							<span id="ViewTimer">
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							</span></p>
+					</li>
+					<li>
+						<img src="/iansan/admin/img/common/topTime.png" alt="타임 아이콘">
+						<p>최종접속일시 : <span>2022-06-20 14:45</span></p>
+					</li>
+				</ul>
+				<div class="pfWrap">
+					<div class="pfImg">
+						<!-- <img src="/iansan/admin/img/pfImg.jpg" alt="개인이미지"> -->
+					</div>
+					<ul>
+						<li class="pfName">admin999</li>
+						<li class="pfPosi">짙은퍼블리셔관리자계정</li>
+					</ul>
+					<input type="button" class="downBtn" onclick="cmnPopOpen(this,1)">
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- //header -->
+
+	<!-- 메뉴 시작 -->
+	<nav class="leftMenu">
+		<ul>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu1.png" alt="홈페이지관리메뉴 아이콘">
+				<p>홈페이지관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('3100000', '/uss/ion/pwm/mainzoneList.do')" id="top_href_3100000"
+						value='메인비주얼관리'>
+						<a href="#">메인비주얼관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3120000', '/uss/ion/pwm/listPopup.do')" id="top_href_3120000"
+						value='팝업관리'>
+						<a href="#">팝업관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3200000', '/cop/bbs/SelectBBSMasterInfs.do')" id="top_href_3200000"
+						value='게시판관리'>
+						<a href="#">게시판관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3300000', '/uss/ion/cnt/contentList.do')" id="top_href_3300000"
+						value='콘텐츠관리'>
+						<a href="#">콘텐츠관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3500000', '/uss/ion/acad/acadList.do')" id="top_href_3500000"
+						value='학사일정/입시일정/총장일정'>
+						<a href="#">학사일정/입시일정/총장일정</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3700000', '/uss/ion/famc/familyCompList.do')" id="top_href_3700000"
+						value='가족회사신청관리'>
+						<a href="#">가족회사신청관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3900000', '/uss/ion/dormi/dormitoryBigList.do')" id="top_href_3900000"
+						value='연연생활관 입사신청 관리'>
+						<a href="#">연연생활관 입사신청 관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3800000', '/uss/orgChart/OrgChartManage.do')" id="top_href_3800000"
+						value='조직도'>
+						<a href="#">조직도</a>
+					</li>
+					<li onclick="javascript:goMenuPage('3110000', '/uss/ion/prof/ProfessorList.do')" id="top_href_3110000"
+						value='교수진'>
+						<a href="#">교수진</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu2.png" alt="관리자관리메뉴 아이콘">
+				<p>관리자관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('2100000', '/uss/umt/user/EgovUserManage.do')" id="top_href_2100000"
+						value='관리자관리'>
+						<a href="#">관리자관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2200000', '/uss/umt/mber/EgovMberManage.do')" id="top_href_2200000"
+						value='사용자관리(회원)'>
+						<a href="#">사용자관리(회원)</a>
+					</li>
+					<li onclick="javascript:goMenuPage('2300000', '/sym/mnu/mcm/EgovMenuCreatManageSelect.do')"
+						id="top_href_2300000" value='권한별메뉴관리'>
+						<a href="#">권한별메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu5.png" alt="메뉴관리메뉴 아이콘">
+				<p>메뉴관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('5100000', '/sym/mnu/mcm/EgovMenuCreatSelectJtree.do')"
+						id="top_href_5100000" value='메뉴관리'>
+						<a href="#">메뉴관리</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu7.png" alt="Q&A관리메뉴 아이콘">
+				<p>Q&A관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('610000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000713')"
+						id="top_href_610000" value='Q&A'>
+						<a href="#">Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('620000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000891')"
+						id="top_href_620000" value='연연생활관 Q&A'>
+						<a href="#">연연생활관 Q&A</a>
+					</li>
+					<li onclick="javascript:goMenuPage('630000', '/cop/bbs/selectBoardList.do?bbsId=BBSMSTR_000000000902')"
+						id="top_href_630000" value='소통마당'>
+						<a href="#">소통마당</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu8.png" alt="로그관리메뉴 아이콘">
+				<p>로그관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('7910000', '/sym/log/clg/SelectLoginLogList.do')" id="top_href_7910000"
+						value='관리자로그리스트'>
+						<a href="#">관리자로그리스트</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<img src="/iansan/admin/img/common/leftMenu9.png" alt="운영관리메뉴 아이콘">
+				<p>운영관리</p>
+				<input type="button" class="goBtn">
+				<ul class="subMenu">
+					<li onclick="javascript:goMenuPage('8400000', '/uss/ion/fms/fmsFileList.do')" id="top_href_8400000"
+						value='첨부파일관리'>
+						<a href="#">첨부파일관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8600000', '/sym/ccm/ccc/EgovCcmCmmnCodeTree.do')" id="top_href_8600000"
+						value='코드관리'>
+						<a href="#">코드관리</a>
+					</li>
+					<li onclick="javascript:goMenuPage('8200000', '/sym/site/IndexPageMng.do')" id="top_href_8200000"
+						value='사용자최초 페이지 설정관리'>
+						<a href="#">사용자최초 페이지 설정관리</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="btnWrap">
+			<ul>
+				<!-- <li><button>
+                        <a href="/cmm/fms/FileDown.do?atchFileId=FILE_000000000008311&amp;fileSn=0">
+                        <p>관리자 <span>매뉴얼</span> </p><img src="/iansan/admin/img/common/leftBtnIcon1.png" alt="관리자 매뉴얼 아이콘">
+                        </button>
+                        </a>
+                    </li> -->
+				<li>
+					<a href="/web/main/mainPage.do" target="_blank">
+						<button>
+							<p>홈페이지<span> 바로가기</span></p><img src="/iansan/admin/img/common/leftBtnIcon2.png" alt="홈페이지바로가기 아이콘">
+						</button>
+					</a>
+					<!-- 최고관리자만 구글보이기 -->
+					<a href="https://analytics.google.com/analytics/web/?hl=ko&pli=1#/p286604442/reports/reportinghub"
+						target="_blank" style="display: inline-block; margin-top: 10px; ">
+						<button>
+							<p>구글애널리틱스<span> 바로가기</span></p>
+						</button>
+					</a>
+				</li>
+			</ul>
+		</div>
+
+	</nav>
+	<!-- 메뉴 끝 -->
+
+	<!-- body 시작 -->
+	<div class="contWrap">
+		<div class="pageTitle">
+			<div class="pageIcon"><img src="/iansan/admin/img/pageTitIcon4.png" alt=""></div>
+			<h2 class="titType1 c_222222 fwBold">조직도</h2>
+			<p class="tType6 c_999999">본사 및 지사 임직원을 조직별로 관리할 수 있습니다.</p>
+		</div>
+		<div class="pageNav">
+			<img src="/iansan/admin/img/common/homeIcon.png" alt="홈이미지">&ensp;>&ensp;<p class="topDepth">홈페이지관리</p>
+			&ensp;>&ensp;<p class="subDepth">매뉴관리</p>
+		</div>
+
+		<!-- 컨텐츠 영역 -->
+		<div class="pageCont">
+			<div class="mgb40">
+				<span class="tbTit">승인정보</span>
+				<table class="tbType2">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row"><span class="reqArea">승인여부</span></th>
+							<td>
+								<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+										for="bbsTyCode1">접수완료</label></span>
+								<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">승인완료</label></span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">승인자</th>
+							<td>홍길동</td>
+						</tr>
+						<tr>
+							<th scope="row">승인일</th>
+							<td>2022-08-04</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mgb40">
+				<span class="tbTit">재능기부자 인적사항</span>
+				<div class="listTop resisterList">
+					<p class="right block fwMd"><span class="tType4 c_e40000 fwBold">*</span>는 필수입력 항목입니다.</p>
+				</div>
+				<table class="tbType2">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">지원분류</th>
+							<td>
+								<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+										for="bbsTyCode1">다채움학교</label></span>
+								<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">우리학습무대</label></span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">지원구분</th>
+							<td>
+								<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+										for="bbsTyCode1">개인</label></span>
+								<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">단체</label></span>
+								<span class="txt_red">
+									<input type="text" style="width:300px" class="text" placeholder="단체명을 입력해주세요">
+									<strong class="txt_red">※ 단체 선택 시 필수입력</strong>
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="reqArea">성명</span></th>
+							<td>홍길동</td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="reqArea">성별</span></th>
+							<td>
+								<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+										for="bbsTyCode1">남성</label></span>
+								<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">여성</label></span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">생년월일</th>
+							<td>
+								<span class="mgr10">
+									<input type="text" class="text" style="width: 150px;"> 년
+								</span>
+								<span class="mgr10">
+									<input type="text" class="text" style="width: 100px;"> 월
+								</span>
+								<span>
+									<input type="text" class="text" style="width: 100px;"> 일
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><span class="reqArea">거주지</span></th>
+							<td>
+								<select name="" id="">
+									<option value="">구 선택</option>
+								</select>
+								<select name="" id="">
+									<option value="">동 선택</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th>연락처(유선)</th>
+							<td>
+								<select name="" id="" style="width: 200px">
+									<option value="">010</option>
+								</select> -
+								<input type="text" class="text" style="width: 200px;"> -
+								<input type="text" class="text" style="width: 200px;">
+							</td>
+						</tr>
+						<tr>
+							<th><span class="reqArea">휴대전화</span></th>
+							<td>
+								<select name="" id="" style="width: 200px">
+									<option value="">010</option>
+								</select> -
+								<input type="text" class="text" style="width: 200px;"> -
+								<input type="text" class="text" style="width: 200px;">
+							</td>
+						</tr>
+						<tr>
+							<th>이메일</th>
+							<td>
+								<input type="text" style="width:200px" class="text"> @
+								<input type="text" style="width:200px" class="text">
+								<select name="" id="" style="width:120px">
+									<option value="">직접입력</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mgb40">
+				<span class="tbTit">평생교육 재능기부 대상분야</span>
+				<div class="listTop resisterList">
+					<p class="right block fwMd txt_red">※ 1개 이상 필수 선택</p>
+				</div>
+				<div class="mgb40">
+					<div class="tbTit2">기초문해교육</div>
+					<table class="tbType2">
+						<colgroup>
+							<col width="250px">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">문해학습계좌 프로그램</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk1" name="" value="">
+										<label for="chk1"></label>
+										<label for="chk1">한글교실(초·중급) </label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">기초생활기술 프로그램</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk2_1" name="" value="">
+										<label for="chk2_1"></label>
+										<label for="chk2_1">다문화 생활교육</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk2_2" name="" value="">
+										<label for="chk2_2"></label>
+										<label for="chk2_2">한글응용교육</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">문해해독 프로그램</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk3_1" name="" value="">
+										<label for="chk3_1"></label>
+										<label for="chk3_1">한글교육(고급·초등학력인정과정)</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk3_2" name="" value="">
+										<label for="chk3_2"></label>
+										<label for="chk3_2">다문화 한국어교육</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="mgb40">
+					<div class="tbTit2">학력보완교육</div>
+					<table class="tbType2">
+						<colgroup>
+							<col width="250px">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">초등학력 보완</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk4_1" name="" value="">
+										<label for="chk4_1"></label>
+										<label for="chk4_1">초등교과연계</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk4_2" name="" value="">
+										<label for="chk4_2"></label>
+										<label for="chk4_2">중입검정고시</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">중등학력 보완</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk5_1" name="" value="">
+										<label for="chk5_1"></label>
+										<label for="chk5_1">중등교과연계</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk5_2" name="" value="">
+										<label for="chk5_2"></label>
+										<label for="chk5_2">고입검정고시</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk5_3" name="" value="">
+										<label for="chk5_3"></label>
+										<label for="chk5_3">대입검정고시</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk5_4" name="" value="">
+										<label for="chk5_4"></label>
+										<label for="chk5_4">진로강좌</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">고등학력 보완</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk6_1" name="" value="">
+										<label for="chk6_1"></label>
+										<label for="chk6_1">독학사과정</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk6_2" name="" value="">
+										<label for="chk6_2"></label>
+										<label for="chk6_2">학점은행제</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk6_3" name="" value="">
+										<label for="chk6_3"></label>
+										<label for="chk6_3">시간제 등록강좌</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="mgb40">
+					<div class="tbTit2">직업능력교육</div>
+					<table class="tbType2">
+						<colgroup>
+							<col width="250px">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">직업준비</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk7_1" name="" value="">
+										<label for="chk7_1"></label>
+										<label for="chk7_1">인력양성</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk7_2" name="" value="">
+										<label for="chk7_2"></label>
+										<label for="chk7_2">창업관련</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk7_3" name="" value="">
+										<label for="chk7_3"></label>
+										<label for="chk7_3">창업관련</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk7_4" name="" value="">
+										<label for="chk7_4"></label>
+										<label for="chk7_4">재취업교육</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">자격인증</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk8_1" name="" value="">
+										<label for="chk8_1"></label>
+										<label for="chk8_1">외국어자격</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk8_2" name="" value="">
+										<label for="chk8_2"></label>
+										<label for="chk8_2">지도자양성</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk8_3" name="" value="">
+										<label for="chk8_3"></label>
+										<label for="chk8_3">자격증 취득과정</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk8_4" name="" value="">
+										<label for="chk8_4"></label>
+										<label for="chk8_4">토익·토플강좌</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">현직 직무역량</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk9_1" name="" value="">
+										<label for="chk9_1"></label>
+										<label for="chk9_1">공통직무연수</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk9_2" name="" value="">
+										<label for="chk9_2"></label>
+										<label for="chk9_2">전문직무연수</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="mgb40">
+					<div class="tbTit2">문화예술교육</div>
+					<table class="tbType2">
+						<colgroup>
+							<col width="250px">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">레저생활스포츠</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk10_1" name="" value="">
+										<label for="chk10_1"></label>
+										<label for="chk10_1">생활스포츠</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk10_2" name="" value="">
+										<label for="chk10_2"></label>
+										<label for="chk10_2">레저활동</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">생활문화예술</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk11_1" name="" value="">
+										<label for="chk11_1"></label>
+										<label for="chk11_1">사진</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk11_2" name="" value="">
+										<label for="chk11_2"></label>
+										<label for="chk11_2">생활공예</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk11_3" name="" value="">
+										<label for="chk11_3"></label>
+										<label for="chk11_3">노래교실</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk11_4" name="" value="">
+										<label for="chk11_4"></label>
+										<label for="chk11_4">요리</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk11_5" name="" value="">
+										<label for="chk11_5"></label>
+										<label for="chk11_5">기타</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">문화예술향상</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk12_1" name="" value="">
+										<label for="chk12_1"></label>
+										<label for="chk12_1">음악</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk12_2" name="" value="">
+										<label for="chk12_2"></label>
+										<label for="chk12_2">무용</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk12_3" name="" value="">
+										<label for="chk12_3"></label>
+										<label for="chk12_3">미술</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk12_4" name="" value="">
+										<label for="chk12_4"></label>
+										<label for="chk12_4">서예</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk12_5" name="" value="">
+										<label for="chk12_5"></label>
+										<label for="chk12_5">도예</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk12_6" name="" value="">
+										<label for="chk12_6"></label>
+										<label for="chk12_6">연극·영화</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="mgb40">
+					<div class="tbTit2">인문교양교육</div>
+					<table class="tbType2">
+						<colgroup>
+							<col width="250px">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">건강심성</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk13_1" name="" value="">
+										<label for="chk13_1"></label>
+										<label for="chk13_1">상담전반</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk13_2" name="" value="">
+										<label for="chk13_2"></label>
+										<label for="chk13_2">종교</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk13_3" name="" value="">
+										<label for="chk13_3"></label>
+										<label for="chk13_3">식생활</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk13_4" name="" value="">
+										<label for="chk13_4"></label>
+										<label for="chk13_4">생활의료</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk13_5" name="" value="">
+										<label for="chk13_5"></label>
+										<label for="chk13_5">이·미용</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk13_6" name="" value="">
+										<label for="chk13_6"></label>
+										<label for="chk13_6">부모·인성교육</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">기능적 소양</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk14_1" name="" value="">
+										<label for="chk14_1"></label>
+										<label for="chk14_1">생활외국어</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk14_2" name="" value="">
+										<label for="chk14_2"></label>
+										<label for="chk14_2">생활한자</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk14_3" name="" value="">
+										<label for="chk14_3"></label>
+										<label for="chk14_3">컴퓨터일반</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk14_4" name="" value="">
+										<label for="chk14_4"></label>
+										<label for="chk14_4">예절교육</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">인문학적 교양</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk15_1" name="" value="">
+										<label for="chk15_1"></label>
+										<label for="chk15_1">인문학</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk15_2" name="" value="">
+										<label for="chk15_2"></label>
+										<label for="chk15_2">과학일반</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk15_3" name="" value="">
+										<label for="chk15_3"></label>
+										<label for="chk15_3">역사·전통</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk15_4" name="" value="">
+										<label for="chk15_4"></label>
+										<label for="chk15_4">철학·행복학</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk15_5" name="" value="">
+										<label for="chk15_5"></label>
+										<label for="chk15_5">독서강좌 경제</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="mgb40">
+					<div class="tbTit2">시민참여교육</div>
+					<table class="tbType2">
+						<colgroup>
+							<col width="250px">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">시민책무성</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk16_1" name="" value="">
+										<label for="chk16_1"></label>
+										<label for="chk16_1">인권</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk16_2" name="" value="">
+										<label for="chk16_2"></label>
+										<label for="chk16_2">양성평등</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk16_3" name="" value="">
+										<label for="chk16_3"></label>
+										<label for="chk16_3">다문화이해</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk16_4" name="" value="">
+										<label for="chk16_4"></label>
+										<label for="chk16_4">환경생태교육</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk16_5" name="" value="">
+										<label for="chk16_5"></label>
+										<label for="chk16_5">주민자치교육</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk16_6" name="" value="">
+										<label for="chk16_6"></label>
+										<label for="chk16_6">지역문화해설</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">시민리더역량</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk17_1" name="" value="">
+										<label for="chk17_1"></label>
+										<label for="chk17_1">지역리더양성</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk17_2" name="" value="">
+										<label for="chk17_2"></label>
+										<label for="chk17_2">평생학습리더양성</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk17_3" name="" value="">
+										<label for="chk17_3"></label>
+										<label for="chk17_3">NPO지도자과정 </label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">시민참여활동</th>
+								<td>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk18_1" name="" value="">
+										<label for="chk18_1"></label>
+										<label for="chk18_1">학습동아리교육</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk18_2" name="" value="">
+										<label for="chk18_2"></label>
+										<label for="chk18_2">자원봉사</label>
+									</span>
+									<span class="checkbox">
+										<input class="blind" type="checkbox" id="chk18_3" name="" value="">
+										<label for="chk18_3"></label>
+										<label for="chk18_3">환경실천</label>
+									</span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="mgb40">
+					<div class="tbTit2">기타</div>
+					<p class="txt_blue mgb10">※ 전문분야 및 위의 6개 분류에 속하지 않는 분야는 기타 입력란에 기입해 주세요.</p>
+					<input type="text" class="text" style="width:100%;" placeholder="기타 재능기부 대상분야를 입력해주세요.">
+				</div>
+			</div>
+			<div class="mgb40">
+				<span class="tbTit">주요활동경력(관련분야,봉사활동 등)</span>
+				<div class="right mgb10">
+					<span class="fwMd txt_red mgr10">※총 3개까지 등록하실 수 있습니다.</span>
+					<input type="button" class="btn sm bg_orange" value="추가등록하기">
+				</div>
+				<table class="tbType2 mgb20">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">기관명</th>
+							<td>
+								<input type="text" style="width:500px">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">기간</th>
+							<td>
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">활동(근무)내용</th>
+							<td>
+								<input type="text" placeholder="활동(근무)내용을 간략하게 입력해주세요.">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<table class="tbType2">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">기관명</th>
+							<td>
+								<input type="text" style="width:500px">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">기간</th>
+							<td>
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">활동(근무)내용</th>
+							<td>
+								<input type="text" placeholder="활동(근무)내용을 간략하게 입력해주세요.">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mgb40">
+				<span class="tbTit">최종학력</span>
+				<table class="tbType2">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">학교명</th>
+							<td>
+								<input type="text" style="width:500px">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">전공</th>
+							<td>
+								<input type="text" style="width:500px">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">학위</th>
+							<td>
+								<input type="text" style="width:500px">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mgb40">
+				<span class="tbTit">재능기부 희망사항</span>
+				<div class="right mgb10">
+					<span class="fwMd txt_red mgr10">※총 3개까지 등록하실 수 있습니다.</span>
+					<input type="button" class="btn sm bg_orange" value="추가등록하기">
+				</div>
+				<table class="tbType2">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row">희망활동분야</th>
+							<td>
+								<input type="text" style="width:500px" placeholder="예 : 한글지도">
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">희망기간</th>
+							<td>
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+								&nbsp;&nbsp;&nbsp;&nbsp;~&nbsp;&nbsp;
+								<input type="text" class="date_format" name="" id="" size="10" maxlength="10" readonly
+									style="width: 60px;">
+								<a href="#">
+									<input type="button" class="calBtn">
+								</a>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">희망활동시간</th>
+							<td>
+								<span>
+									주 <input type="text" class="text" style="width: 200px"> 회 /
+								</span>
+								<span>
+									일 <input type="text" class="text" style="width: 200px"> 시간
+								</span>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">희망활동대상</th>
+							<td>
+								<select name="bbsTab" id="bbsTab">
+									<option value="">희망활동대상 선택</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">희망활동지역</th>
+							<td>
+								<select name="bbsTab" id="bbsTab">
+									<option value="">희망활동지역 선택</option>
+								</select>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mgb40">
+				<span class="tbTit">기타 경력사항 (선택 기재사항)</span>
+				<table class="tbType2">
+					<colgroup>
+						<col width="200px">
+						<col>
+					</colgroup>
+					<tbody>
+						<tr>
+							<th scope="row" class="v_mid">기타</th>
+							<td>
+								<textarea name="" id="" cols="30" rows="10">○시   기 :
+
+○대   상 :
+									
+○내   용 :
+									
+[기타사항]
+									
+○기타사항(특기사항, 수상경력 등 자율입력)
+								</textarea>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">지원구분</th>
+							<td>
+								<span><input id="bbsTyCode1" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST01" checked="checked"><label for="bbsTyCode1"></label><label
+										for="bbsTyCode1">개인</label></span>
+								<span><input id="bbsTyCode2" name="bbsTyCode" style="margin-right:5px;" title="게시판유형" type="radio"
+										value="BBST05"><label for="bbsTyCode2"></label><label for="bbsTyCode2">단체</label></span>
+								<span class="txt_red">
+									<input type="text" style="width:300px" class="text" placeholder="단체명을 입력해주세요">
+									<strong class="txt_red">※ 단체 선택 시 필수입력</strong>
+								</span>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="mgb40">
+				<span class="tbTit">개인정보 수집 및 이용동의 확인</span>
+				<div class="agree-box">
+					<div class="bx1">
+						"공공기관의 개인정보 보호에 관한 법률" 등에 의하여 개인정보를 수집 및 이용하기 위해서는 본인의 동의가 필요합니다.<br>
+						본인은 "평생교육 재능기부" 신청서에 기재한 개인 신상정보를 기부활동처에 연결 등을 위하여 이에 원활한 활동을 위하여 타 기관에 개인정보를 제공하는데 동의합니다.<br>
+						<strong class="txt_red">※ 신상정보는 "개인정보 보호법"에 따라 보호되며, 영리목적으로 활용되지 않습니다. </strong>
+					</div>
+					<div class="bx2">
+						<div class="l">위 사항에 대해 충분히 숙지하였으며 동의하십니까?</div>
+						<div class="r">
+							<span><input id="agree1" name="bbsTyCode" style="margin-right:5px;" title="이용동의 확인" type="radio"
+									value="BBST01" checked="checked"><label for="agree1"></label><label for="agree1">
+									동의합니다</label></span>
+							<span><input id="agree2" name="bbsTyCode" style="margin-right:5px;" title="이용동의 확인" type="radio"
+									value="BBST01" checked="checked"><label for="agree2"></label><label for="agree2"> 동의하지
+									않습니다</label></span>
+						</div>
+					</div>
+					<div class="bx3">
+						<input type="button" class="btn md bg_blue" value="재능기부자 정보등록">
+						<input type="button" class="btn md bg_blue" value="재능기부자 정보수정">
+						<input type="button" class="btn md bg_gray" value="삭제">
+					</div>
+				</div>
+			</div>
+
+
+
+		</div>
+		<!-- // 컨텐츠 영역 -->
+
+	</div>
+	<!-- body 끝 -->
+
+</body>
+
+</html>
